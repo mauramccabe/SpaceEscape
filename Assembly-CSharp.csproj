@@ -60,6 +60,7 @@
      <Compile Include="Assets\RobotSphere\Assets\Scripts\RobotFreeAnim.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\KillPlaneTrigger.cs" />
+     <Compile Include="Assets\Scripts\PickUpObject.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <None Include="Assets\ScannedRocks\BonusShaders\Old\SnowOnRockShader.shader" />
      <None Include="Assets\ScannedRocks\BonusShaders\New\OnTheTopShader.shader" />
