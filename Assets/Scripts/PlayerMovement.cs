@@ -20,18 +20,20 @@ public class PlayerMovement : MonoBehaviour
     {
         float yStore = moveDirection.y;
         moveDirection = (transform.forward * Input.GetAxis("Vertical")) + (transform.right * Input.GetAxis("Horizontal"));
+        
         //normalize movedirection so you dont get double speed when moving diagonally.
         moveDirection = Vector3.ClampMagnitude(moveDirection,1) * moveSpeed;
         moveDirection.y = yStore;
 
         if (controller.isGrounded)
         {
+            moveDirection.y = 0f;
             if (Input.GetButtonDown("Jump"))
             {
                 moveDirection.y = jumpForce;
             }
         }
-        moveDirection.y = moveDirection.y + (Physics.gravity.y  * gravityScale);
+        moveDirection.y = moveDirection.y + (Physics.gravity.y  * gravityScale *Time.deltaTime);
         controller.Move(moveDirection * Time.deltaTime);
     }
 }
