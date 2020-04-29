@@ -36,4 +36,16 @@ public class PlayerMovement : MonoBehaviour
         moveDirection.y = moveDirection.y + (Physics.gravity.y  * gravityScale *Time.deltaTime);
         controller.Move(moveDirection * Time.deltaTime);
     }
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        
+        switch (hit.gameObject.tag)
+        {
+        case "Spring":
+            moveDirection.y = jumpForce * 2;
+            break;
+        default:
+            break;
+        }
+    }
 }
