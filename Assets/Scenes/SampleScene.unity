@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -322,6 +322,20 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1508399188}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &38240111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38240107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e91d75ba4fc51c4bb7fc81cbbe1eedc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plate1: {fileID: 328802139}
+  plate2: {fileID: 1688470417}
 --- !u!1001 &50292234
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -720,7 +734,7 @@ GameObject:
   - component: {fileID: 127743430}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -792,7 +806,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 127743424}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -53.19, y: 20.98, z: -2.8500004}
+  m_LocalPosition: {x: 0, y: 1, z: 4.92}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -814,6 +828,8 @@ MonoBehaviour:
   jumpForce: 25
   controller: {fileID: 0}
   gravityScale: 5
+  moveDirection: {x: 0, y: 0, z: 0}
+  spring: {fileID: 1125284384}
 --- !u!143 &127743430
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1350,7 +1366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a044ad64eaf44284a645703de9252fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 38240107}
+  pressure: 0
 --- !u!136 &328802142
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2152,19 +2168,19 @@ MonoBehaviour:
   speed: 4
   delayTime: 0
   automatic: 1
---- !u!135 &513232897
-SphereCollider:
+--- !u!65 &513232897
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 513232892}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 34.2
-  m_Center: {x: 3.81, y: 11.068599, z: 8.6}
+  m_Size: {x: 96.801796, y: 22.9924, z: 103.4876}
+  m_Center: {x: 0, y: 11.068599, z: 0}
 --- !u!1 &543197431
 GameObject:
   m_ObjectHideFlags: 0
@@ -3418,19 +3434,19 @@ MonoBehaviour:
   speed: 4
   delayTime: 0
   automatic: 1
---- !u!135 &881849627
-SphereCollider:
+--- !u!65 &881849627
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 881849622}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 50.96
-  m_Center: {x: -2.34, y: 13.9775, z: 0.5}
+  m_Size: {x: 91.478195, y: 29.781599, z: 102.72949}
+  m_Center: {x: 0, y: 13.9775, z: -0.0597496}
 --- !u!4 &901748009 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4789782386094420, guid: 4e93dfa2dc2429043bf8dcaef3f85256,
@@ -3819,7 +3835,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.15427929, y: 0, z: 0, w: 0.9880273}
-  m_LocalPosition: {x: -53.19, y: 25.73, z: -12.1}
+  m_LocalPosition: {x: 0, y: 5.75, z: -4.3300004}
   m_LocalScale: {x: 1.0829, y: 2.6597276, z: 0.753915}
   m_Children:
   - {fileID: 1097744579}
@@ -4187,6 +4203,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Box (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1062870459301972, guid: b8fc8c3d0e0ff9b4089c4e346ac42ecc, type: 3}
+      propertyPath: m_TagString
+      value: Box
+      objectReference: {fileID: 0}
     - target: {fileID: 4725293624299974, guid: b8fc8c3d0e0ff9b4089c4e346ac42ecc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.7
@@ -4258,6 +4278,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[2]
       value: 
       objectReference: {fileID: 2100000, guid: 50e8d87218c9f9649975e35ca3232d32, type: 2}
+    - target: {fileID: 64866832583366742, guid: b8fc8c3d0e0ff9b4089c4e346ac42ecc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8fc8c3d0e0ff9b4089c4e346ac42ecc, type: 3}
 --- !u!1 &1100408297 stripped
@@ -4279,7 +4304,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 127743428}
-  boxes: {fileID: 0}
+  hasPlayer: 0
+  beingCarried: 0
+  killPlane: {fileID: 1793577626}
 --- !u!54 &1100408299
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4327,6 +4354,8 @@ GameObject:
   - component: {fileID: 1125284387}
   - component: {fileID: 1125284386}
   - component: {fileID: 1125284385}
+  - component: {fileID: 1125284389}
+  - component: {fileID: 1125284390}
   m_Layer: 0
   m_Name: Spring1
   m_TagString: Spring
@@ -4406,6 +4435,34 @@ Transform:
   m_Father: {fileID: 20183813}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1125284389
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125284384}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2513123, y: 2.0094833, z: 1.2230606}
+  m_Center: {x: 0.01125145, y: 0.50474167, z: 0.004688263}
+--- !u!114 &1125284390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125284384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bee5ea24d6915ed4d85812cd27ba3f63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  springStrength: 0
+  entered: 0
+  player: {fileID: 0}
 --- !u!1001 &1151846375
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5012,6 +5069,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground1
       objectReference: {fileID: 0}
+    - target: {fileID: 1908140710585404, guid: 47645e6370fb9eb498189c1439e90c3a, type: 3}
+      propertyPath: m_TagString
+      value: Box
+      objectReference: {fileID: 0}
     - target: {fileID: 4853827799442656, guid: 47645e6370fb9eb498189c1439e90c3a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -31.91
@@ -5417,6 +5478,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Box
       objectReference: {fileID: 0}
+    - target: {fileID: 1062870459301972, guid: b8fc8c3d0e0ff9b4089c4e346ac42ecc, type: 3}
+      propertyPath: m_TagString
+      value: Box
+      objectReference: {fileID: 0}
     - target: {fileID: 4725293624299974, guid: b8fc8c3d0e0ff9b4089c4e346ac42ecc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -56.26
@@ -5520,7 +5585,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 127743428}
-  boxes: {fileID: 0}
+  hasPlayer: 0
+  beingCarried: 0
+  killPlane: {fileID: 1793577626}
 --- !u!65 &1392101235
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6616,7 +6683,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a044ad64eaf44284a645703de9252fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 38240107}
+  pressure: 0
 --- !u!136 &1688470420
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7024,6 +7091,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Box (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1062870459301972, guid: b8fc8c3d0e0ff9b4089c4e346ac42ecc, type: 3}
+      propertyPath: m_TagString
+      value: Box
+      objectReference: {fileID: 0}
     - target: {fileID: 4725293624299974, guid: b8fc8c3d0e0ff9b4089c4e346ac42ecc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -20.59
@@ -7100,6 +7171,11 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 64866832583366742, guid: b8fc8c3d0e0ff9b4089c4e346ac42ecc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8fc8c3d0e0ff9b4089c4e346ac42ecc, type: 3}
 --- !u!4 &1742986612 stripped
@@ -7140,7 +7216,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 127743428}
-  boxes: {fileID: 0}
+  hasPlayer: 0
+  beingCarried: 0
+  killPlane: {fileID: 1793577626}
 --- !u!54 &1742986616
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7595,6 +7673,7 @@ MonoBehaviour:
   box3Transform: {fileID: 1609236687}
   player: {fileID: 127743424}
   respawnPoint: {x: 1, y: 2, z: 1}
+  playerIsDead: 0
 --- !u!65 &1793577628
 BoxCollider:
   m_ObjectHideFlags: 0

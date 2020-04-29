@@ -48,8 +48,9 @@ public class RockMovement : MonoBehaviour
 
 
 
-        
-        transform.Rotate(new Vector3(0f, Time.deltaTime * degrees, 0f), Space.World);
+        //commented out rocks rotating because it  broke stuff.
+        //transform.Rotate(new Vector3(0f, Time.deltaTime * degrees, 0f), Space.World);
+
         /*
         temp = position;
         temp.y += Mathf.Sin(Time.fixedTime * Mathf.PI * frequency) * height;
@@ -91,12 +92,19 @@ public class RockMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        other.transform.parent = transform;
+        if(other.gameObject.tag == "Player")
+        {
+            other.transform.parent = transform;
+        }
+            
     }
 
     private void OnTriggerExit(Collider other)
     {
-        other.transform.parent = null;
+        if (other.gameObject.tag == "Player")
+        {
+            other.transform.parent = null;
+        }
     }
 }
 

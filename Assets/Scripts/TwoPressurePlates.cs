@@ -4,22 +4,43 @@ using UnityEngine;
 
 public class TwoPressurePlates : MonoBehaviour
 {
-    [SerializeField]
-    GameObject door;
-    int plates = 0;
-    void Update()
+   
+
+
+    public int pressure = 0;
+
+    void OnTriggerEnter(Collider other)
     {
-        if (plates == 3)
+        if(other.gameObject.tag == "Box")
         {
-            door.transform.position = door.transform.position + new Vector3(0, -4, 0);
+            
+            pressure = pressure + 1;
+            
         }
+        if (other.gameObject.tag == "Player")
+        {         
+            pressure = pressure + 2;
+            
+        }
+
+
+
     }
-    void OnTriggerEnter(Collider col)
+    void OnTriggerExit(Collider other)
     {
-        plates = plates + 1;
-    }
-    void OnTriggerExit(Collider col)
-    {
-        plates = plates - 1;
+        if (other.gameObject.tag == "Box")
+        {
+            
+            pressure = pressure - 1;
+          
+        }
+        if (other.gameObject.tag == "Player")
+        {
+            
+            pressure = pressure - 2;
+            
+        }
+
+
     }
 }

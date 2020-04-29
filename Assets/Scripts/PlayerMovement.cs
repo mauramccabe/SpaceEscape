@@ -9,7 +9,12 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce;
     public CharacterController controller;
     public float gravityScale;
-    private Vector3 moveDirection;
+    public Vector3 moveDirection;
+
+    public GameObject spring;
+
+    private bool springJump;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -25,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
         moveDirection = Vector3.ClampMagnitude(moveDirection,1) * moveSpeed;
         moveDirection.y = yStore;
 
+        
+
         if (controller.isGrounded)
         {
             moveDirection.y = 0f;
@@ -33,19 +40,27 @@ public class PlayerMovement : MonoBehaviour
                 moveDirection.y = jumpForce;
             }
         }
+
+        if (springJump)
+        {
+            moveDirection.y = jumpForce * 2;
+            springJump = false;
+        }
+
         moveDirection.y = moveDirection.y + (Physics.gravity.y  * gravityScale *Time.deltaTime);
         controller.Move(moveDirection * Time.deltaTime);
     }
-    private void OnControllerColliderHit(ControllerColliderHit hit)
+
+    private void OnTriggerEnter(Collider other)
     {
-        
-        switch (hit.gameObject.tag)
+        if(other.gameObject == spring)
         {
-        case "Spring":
-            moveDirection.y = jumpForce * 2;
-            break;
-        default:
-            break;
+            springJump = true;
+
+           
         }
     }
+
+
+
 }

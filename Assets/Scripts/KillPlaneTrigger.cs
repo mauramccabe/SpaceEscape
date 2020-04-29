@@ -25,7 +25,7 @@ public class KillPlaneTrigger : MonoBehaviour
 
     public GameObject player;
     public Vector3 respawnPoint;
-    bool playerIsDead = false;
+    public bool playerIsDead = false;
     
     void Start()
     {
@@ -56,7 +56,7 @@ public class KillPlaneTrigger : MonoBehaviour
             box1.transform.position = box1Position;
             box1.transform.rotation = box1Rotation;
             Physics.SyncTransforms();
-            box1.GetComponent<Rigidbody>().velocity = Vector3.zero;
+
         }
 
         if (other.gameObject == box2)
@@ -67,7 +67,7 @@ public class KillPlaneTrigger : MonoBehaviour
             box2.transform.position = box2Position;
             box2.transform.rotation = box2Rotation;
             Physics.SyncTransforms();
-            box2.GetComponent<Rigidbody>().velocity = Vector3.zero;
+
         }
 
         if (other.gameObject == box3)
@@ -78,12 +78,12 @@ public class KillPlaneTrigger : MonoBehaviour
             box3.transform.position = box3Position;
             box3.transform.rotation = box3Rotation;
             Physics.SyncTransforms();
-            box3.GetComponent<Rigidbody>().velocity = Vector3.zero;
+
         }
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         if (playerIsDead)
         {
