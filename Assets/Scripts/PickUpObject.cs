@@ -3,6 +3,7 @@ using System.Collections;
 
 public class PickUpObject : MonoBehaviour {
 	public Transform player;
+	public GameObject boxes;
 
 	bool hasPlayer = false;
 	bool beingCarried = false;
@@ -35,7 +36,7 @@ public class PickUpObject : MonoBehaviour {
 	{
 		if(beingCarried)
 		{
-			if(Input.GetKeyDown("k"))
+			if(Input.GetKeyDown("e"))
 			{
 				rb.velocity = Vector3.zero;
 				rb.isKinematic = false;
@@ -45,7 +46,7 @@ public class PickUpObject : MonoBehaviour {
 				beingCarried = false;
 
 			}
-			if(Input.GetKeyDown("k") && hasAnchor && hasPlayer)
+			if(Input.GetKeyDown("e") && hasAnchor && hasPlayer)
 			{
 				rb.isKinematic = true;
 				
@@ -57,7 +58,7 @@ public class PickUpObject : MonoBehaviour {
 		}
 		else
 		{
-			if(Input.GetKeyDown("k") && hasPlayer)
+			if(Input.GetKeyDown("e") && hasPlayer)
 			{
 				rb.velocity = Vector3.zero;
 				rb.isKinematic = true;
