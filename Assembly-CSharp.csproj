@@ -70,7 +70,9 @@
     <Compile Include="Assets\Scripts\KillPlaneTrigger.cs" />
     <Compile Include="Assets\Scripts\PickUpObject.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\PressurePlate.cs" />
     <Compile Include="Assets\Scripts\RockMovement.cs" />
+    <Compile Include="Assets\Scripts\TwoPressurePlates.cs" />
     <None Include="Assets\ScannedRocks\BonusShaders\Old\SnowOnRockShader.shader" />
     <None Include="Assets\ScannedRocks\BonusShaders\New\OnTheTopShader.shader" />
     <Reference Include="Unity.Timeline.Editor">
