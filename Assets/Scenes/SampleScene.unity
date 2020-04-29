@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.5748171, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -316,6 +316,12 @@ Transform:
   m_Father: {fileID: 1057098173}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &38240107 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1461504648163160, guid: 79298396da72aeb4a9dbe792d38ccf1f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1508399188}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &50292234
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -641,7 +647,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2e0cab75c28916645915d411e339054a, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.1
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2e0cab75c28916645915d411e339054a, type: 3}
       propertyPath: m_LocalScale.y
@@ -1341,10 +1347,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 328802139}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 398ff5155a54643f8be9576b292865b8, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a044ad64eaf44284a645703de9252fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 88920549}
+  door: {fileID: 38240107}
 --- !u!136 &328802142
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1690,7 +1696,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 05db1e7bd7c35104daeb87c082ff0e68, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.1
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 05db1e7bd7c35104daeb87c082ff0e68, type: 3}
       propertyPath: m_LocalScale.y
@@ -1698,7 +1704,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 05db1e7bd7c35104daeb87c082ff0e68, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.1
+      value: 0.15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05db1e7bd7c35104daeb87c082ff0e68, type: 3}
@@ -2154,7 +2160,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 513232892}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 34.2
@@ -3420,7 +3426,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 881849622}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 50.96
@@ -6607,10 +6613,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1688470417}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 398ff5155a54643f8be9576b292865b8, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a044ad64eaf44284a645703de9252fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 88920549}
+  door: {fileID: 38240107}
 --- !u!136 &1688470420
 CapsuleCollider:
   m_ObjectHideFlags: 0
