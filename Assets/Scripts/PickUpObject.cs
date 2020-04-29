@@ -24,7 +24,7 @@ public class PickUpObject : MonoBehaviour {
        
 			
 		
-		if(other.gameObject.name == "Anchor")
+		if(other.gameObject.tag == "Anchor")
 		{
 			hasAnchor = true;
 
@@ -36,6 +36,11 @@ public class PickUpObject : MonoBehaviour {
 		if (other.gameObject.tag == "Player") 
 		{ 
 			hasPlayer = false;
+
+		}
+		if (other.gameObject.tag == "Anchor")
+		{
+			
 			hasAnchor = false;
 		}
 
@@ -54,7 +59,7 @@ public class PickUpObject : MonoBehaviour {
 				transform.parent = null;
 
 				beingCarried = false;
-			}
+            }
 			
 		}
 

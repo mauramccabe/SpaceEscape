@@ -46,9 +46,9 @@ public class CameraController : MonoBehaviour
             pivot.rotation = Quaternion.Euler(45f, 0, 0);
         }
 
-        if (pivot.rotation.eulerAngles.x > 180f && pivot.rotation.eulerAngles.x < 315f)
+        if (pivot.rotation.eulerAngles.x > 180f && pivot.rotation.eulerAngles.x < 295f)
         {
-            pivot.rotation = Quaternion.Euler(315f, 0, 0);
+            pivot.rotation = Quaternion.Euler(295f, 0, 0);
         }
 
         float desiredYAgngle = player.transform.eulerAngles.y;
