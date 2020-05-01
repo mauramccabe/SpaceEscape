@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+
 public class PickUpObject : MonoBehaviour {
 	public Transform player;
 

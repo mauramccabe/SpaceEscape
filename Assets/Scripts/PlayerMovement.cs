@@ -55,6 +55,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        print(other.name);
         if(other.gameObject == spring)
         {
             springJump = true;
