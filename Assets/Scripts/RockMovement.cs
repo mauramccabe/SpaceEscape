@@ -25,8 +25,12 @@ public class RockMovement : MonoBehaviour
     Vector3 position = new Vector3();
     Vector3 temp = new Vector3();
 
+    private GameObject boxInside;
+
     void Start()
     {
+        PickUpObject.onBoxDrop += MakeBoxChild;
+
         position = transform.position;
 
         if (points.Length > 0)
@@ -96,8 +100,17 @@ public class RockMovement : MonoBehaviour
         {
             other.transform.parent = transform;
         }
-            
+     
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.gameObject.tag == "Box")
+        {
+            boxInside = other.gameObject;
+        }
+    }
+
 
     private void OnTriggerExit(Collider other)
     {
@@ -105,6 +118,24 @@ public class RockMovement : MonoBehaviour
         {
             other.transform.parent = null;
         }
+        if (other.gameObject.tag == "Box")
+        {
+            boxInside = null;
+        }
+    }
+    
+
+    private void MakeBoxChild(GameObject box)
+    {
+        if(boxInside != null)
+        {
+            if (object.ReferenceEquals(boxInside, box))
+            {
+                box.transform.parent = transform;
+            }
+            
+        }
+       
     }
 }
 

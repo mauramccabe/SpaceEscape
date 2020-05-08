@@ -14,7 +14,9 @@ public class PickUpObject : MonoBehaviour {
 
 	public GameObject killPlane;
 
-
+	public delegate void BoxHandler(GameObject box);
+	public static event BoxHandler onBoxDrop;
+	public static event BoxHandler onBoxPickup;
 
 	void OnTriggerEnter(Collider other)
 	{
@@ -53,7 +55,7 @@ public class PickUpObject : MonoBehaviour {
 	{
 		if (killPlane.GetComponent<KillPlaneTrigger>().playerIsDead)
         {
-            if (rb)
+            if (rb && beingCarried)
             {
 				rb.velocity = Vector3.zero;
 				rb.isKinematic = false;
@@ -76,6 +78,12 @@ public class PickUpObject : MonoBehaviour {
 				transform.parent = null;
 				
 				beingCarried = false;
+
+				if(onBoxDrop != null)
+                {
+					onBoxDrop(gameObject);
+				}
+                
 
 			}
 			
