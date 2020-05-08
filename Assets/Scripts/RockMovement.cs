@@ -35,7 +35,7 @@ public class RockMovement : MonoBehaviour
         }
         tolerance = speed * Time.deltaTime;
     }
-    void Update()
+    void FixedUpdate()
     {
         if (transform.position != currentTarget)
         {

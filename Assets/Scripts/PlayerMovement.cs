@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject spring;
 
+    private float lastGrounded = 0;
+
     private bool springJump;
 
     void Start()
@@ -22,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
         controller = GetComponent<CharacterController>();
     }
 
-    // Update is called once per frame
+    // probably need to change this to fixed update but will need some debugging so im not doing it rn
     void Update()
     {
         float yStore = moveDirection.y;
@@ -32,16 +34,27 @@ public class PlayerMovement : MonoBehaviour
         moveDirection = Vector3.ClampMagnitude(moveDirection,1) * moveSpeed;
         moveDirection.y = yStore;
 
-        
+
 
         if (controller.isGrounded)
         {
             moveDirection.y = 0f;
+            lastGrounded = 0.2f;
+
+        } else if (lastGrounded > 0)
+        {
+            lastGrounded = lastGrounded - Time.deltaTime;
+        }
+
+        if (lastGrounded > 0)
+        {
             if (Input.GetButtonDown("Jump"))
             {
                 moveDirection.y = jumpForce;
+                lastGrounded = 0f;
             }
         }
+
 
         if (springJump)
         {
@@ -55,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        print(other.name);
+        
         if(other.gameObject == spring)
         {
             springJump = true;
