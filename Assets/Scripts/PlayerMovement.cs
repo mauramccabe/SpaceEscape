@@ -4,9 +4,7 @@ using UnityEngine;
 
 //https://www.youtube.com/watch?v=h2d9Wc3Hhi0
 
-public class PlayerMovement : MonoBehaviour
-{
-    // Start is called before the first frame update
+public class PlayerMovement : MonoBehaviour {
     public float moveSpeed;
     public float jumpForce;
     public CharacterController controller;
@@ -18,6 +16,11 @@ public class PlayerMovement : MonoBehaviour
     private float lastGrounded = 0;
 
     private bool springJump;
+
+    public delegate void JumpHandler();
+    public static event JumpHandler onJump;
+    public static event JumpHandler onLand;
+
 
     void Start()
     {
@@ -36,28 +39,28 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-        if (controller.isGrounded)
-        {
+        if (controller.isGrounded) {
+            if ((lastGrounded != 0.2f) && (onLand != null))
+                onLand();
             moveDirection.y = 0f;
             lastGrounded = 0.2f;
 
-        } else if (lastGrounded > 0)
-        {
+        } else if (lastGrounded > 0) {
             lastGrounded = lastGrounded - Time.deltaTime;
         }
 
-        if (lastGrounded > 0)
-        {
-            if (Input.GetButtonDown("Jump"))
-            {
+        if (lastGrounded > 0) {
+            if (Input.GetButtonDown("Jump")) {
                 moveDirection.y = jumpForce;
                 lastGrounded = 0f;
+
+                if(onJump != null)
+                    onJump();
             }
         }
 
 
-        if (springJump)
-        {
+        if (springJump) {
             moveDirection.y = jumpForce * 2;
             springJump = false;
         }
@@ -66,17 +69,10 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(moveDirection * Time.deltaTime);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
+    private void OnTriggerEnter(Collider other) {
         
-        if(other.gameObject == spring)
-        {
-            springJump = true;
-
-           
+        if(other.gameObject.tag == "Spring") {
+            springJump = true;    
         }
     }
-
-
-
 }

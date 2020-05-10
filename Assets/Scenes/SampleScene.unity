@@ -4087,10 +4087,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1302b29a9bcb4469ba1d123a83702f35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 127743428}
   hasPlayer: 0
   beingCarried: 0
-  killPlane: {fileID: 1793577626}
+  startPosition: {x: 0, y: 0, z: 0}
+  startRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!65 &542181486
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4461,7 +4461,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4782403527283308, guid: eecb8c66bde2c244b94c10132b7aad0e, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4782403527283308, guid: eecb8c66bde2c244b94c10132b7aad0e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5285,7 +5285,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218946168670328, guid: 8ac6c8f32a8b3114f8c36c2815f09d4f, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4218946168670328, guid: 8ac6c8f32a8b3114f8c36c2815f09d4f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5359,7 +5359,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4018968685625600, guid: a1a83d2092ced8a469dab21cf6c7133b, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4018968685625600, guid: a1a83d2092ced8a469dab21cf6c7133b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5690,7 +5690,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4018968685625600, guid: a1a83d2092ced8a469dab21cf6c7133b, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4018968685625600, guid: a1a83d2092ced8a469dab21cf6c7133b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7189,7 +7189,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218946168670328, guid: 8ac6c8f32a8b3114f8c36c2815f09d4f, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4218946168670328, guid: 8ac6c8f32a8b3114f8c36c2815f09d4f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7975,7 +7975,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218946168670328, guid: 8ac6c8f32a8b3114f8c36c2815f09d4f, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4218946168670328, guid: 8ac6c8f32a8b3114f8c36c2815f09d4f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -9113,10 +9113,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1302b29a9bcb4469ba1d123a83702f35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 127743428}
   hasPlayer: 0
   beingCarried: 0
-  killPlane: {fileID: 1793577626}
+  startPosition: {x: 0, y: 0, z: 0}
+  startRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!54 &1100408299
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9449,7 +9449,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218946168670328, guid: 8ac6c8f32a8b3114f8c36c2815f09d4f, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4218946168670328, guid: 8ac6c8f32a8b3114f8c36c2815f09d4f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -9796,10 +9796,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1302b29a9bcb4469ba1d123a83702f35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 127743428}
   hasPlayer: 0
   beingCarried: 0
-  killPlane: {fileID: 1793577626}
+  startPosition: {x: 0, y: 0, z: 0}
+  startRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!65 &1164878719
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11574,10 +11574,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1302b29a9bcb4469ba1d123a83702f35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 127743428}
   hasPlayer: 0
   beingCarried: 0
-  killPlane: {fileID: 1793577626}
+  startPosition: {x: 0, y: 0, z: 0}
+  startRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!65 &1392101235
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12590,7 +12590,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4018968685625600, guid: a1a83d2092ced8a469dab21cf6c7133b, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4018968685625600, guid: a1a83d2092ced8a469dab21cf6c7133b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -12999,10 +12999,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1302b29a9bcb4469ba1d123a83702f35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 127743428}
   hasPlayer: 0
   beingCarried: 0
-  killPlane: {fileID: 1793577626}
+  startPosition: {x: 0, y: 0, z: 0}
+  startRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!65 &1616469440
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13202,6 +13202,51 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 779370d176aafca40a59fafa5ba422d3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d225f970f8e37d4e820f1cb8440987b, type: 3}
+--- !u!1 &1635466919
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1635466921}
+  - component: {fileID: 1635466920}
+  m_Layer: 0
+  m_Name: SceneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1635466920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635466919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0363e8e0781d83047bf0abed78bcd673, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  killPlane: {fileID: 0}
+--- !u!4 &1635466921
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635466919}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1642173984
 GameObject:
   m_ObjectHideFlags: 0
@@ -14200,7 +14245,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4127722668221838, guid: 8b1fc8f56ae45b44a91ace88f0db210c, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4127722668221838, guid: 8b1fc8f56ae45b44a91ace88f0db210c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -14449,10 +14494,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1302b29a9bcb4469ba1d123a83702f35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 127743428}
   hasPlayer: 0
   beingCarried: 0
-  killPlane: {fileID: 1793577626}
+  startPosition: {x: 0, y: 0, z: 0}
+  startRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!54 &1742986616
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15015,7 +15060,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4018968685625600, guid: a1a83d2092ced8a469dab21cf6c7133b, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4018968685625600, guid: a1a83d2092ced8a469dab21cf6c7133b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -15262,7 +15307,7 @@ GameObject:
   - component: {fileID: 1793577627}
   m_Layer: 0
   m_Name: KillPlane
-  m_TagString: Untagged
+  m_TagString: KillPlane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15279,13 +15324,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6c7f8400ea22e142b9d390cf06c6a10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  box1: {fileID: 1392101233}
-  box2: {fileID: 1742986613}
-  box3: {fileID: 1100408297}
-  box1Transform: {fileID: 1392101232}
-  box2Transform: {fileID: 1742986612}
-  box3Transform: {fileID: 1609236687}
-  player: {fileID: 127743424}
   respawnPoint: {x: 0, y: 1, z: 5}
   playerIsDead: 0
 --- !u!65 &1793577628
@@ -15712,7 +15750,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218946168670328, guid: 8ac6c8f32a8b3114f8c36c2815f09d4f, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4218946168670328, guid: 8ac6c8f32a8b3114f8c36c2815f09d4f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -15948,7 +15986,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4218946168670328, guid: 8ac6c8f32a8b3114f8c36c2815f09d4f, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4218946168670328, guid: 8ac6c8f32a8b3114f8c36c2815f09d4f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

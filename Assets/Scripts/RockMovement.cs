@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 // http://www.donovankeith.com/2016/05/making-objects-float-up-down-in-unity/
 // https://www.youtube.com/watch?time_continue=254&v=9KdY4mafG_E&feature=emb_logo
+
 public class RockMovement : MonoBehaviour
 {
     public float degrees;
@@ -25,11 +26,16 @@ public class RockMovement : MonoBehaviour
     Vector3 position = new Vector3();
     Vector3 temp = new Vector3();
 
-    private GameObject boxInside;
+    private List<GameObject> boxesInside = new List<GameObject>();
+    private bool playerIsInside = false;
+    private bool playerIsChild = false;
 
     void Start()
     {
         PickUpObject.onBoxDrop += MakeBoxChild;
+        PlayerMovement.onJump += RemovePlayerChild;
+        PlayerMovement.onLand += MakePlayerChild;
+        
 
         position = transform.position;
 
@@ -53,9 +59,9 @@ public class RockMovement : MonoBehaviour
 
 
         //commented out rocks rotating because it  broke stuff.
-        //transform.Rotate(new Vector3(0f, Time.deltaTime * degrees, 0f), Space.World);
-
         /*
+        transform.Rotate(new Vector3(0f, Time.deltaTime * degrees, 0f), Space.World);
+
         temp = position;
         temp.y += Mathf.Sin(Time.fixedTime * Mathf.PI * frequency) * height;
         transform.position = temp;
@@ -96,19 +102,15 @@ public class RockMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Player")
-        {
-            other.transform.parent = transform;
+        if (other.gameObject.tag == "Box") {
+            if (!boxesInside.Contains(other.gameObject))
+                boxesInside.Add(other.gameObject);
+        }
+
+        if (other.gameObject.tag == "Player") {
+            playerIsInside = true;
         }
      
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if(other.gameObject.tag == "Box")
-        {
-            boxInside = other.gameObject;
-        }
     }
 
 
@@ -116,26 +118,32 @@ public class RockMovement : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            other.transform.parent = null;
+            playerIsInside = false;
         }
         if (other.gameObject.tag == "Box")
         {
-            boxInside = null;
+            if(boxesInside.Contains(other.gameObject))
+                boxesInside.Remove(other.gameObject);
         }
     }
     
+    private void MakePlayerChild() {
+        if (playerIsInside) {
+            SceneManager.Instance.player.transform.parent = transform;
+            playerIsChild = true;
+        }
+    }
+
+    private void RemovePlayerChild() {
+        if (playerIsChild) {
+            SceneManager.Instance.player.transform.parent = null;
+        }
+    }
 
     private void MakeBoxChild(GameObject box)
     {
-        if(boxInside != null)
-        {
-            if (object.ReferenceEquals(boxInside, box))
-            {
-                box.transform.parent = transform;
-            }
-            
-        }
-       
+        if(boxesInside.Contains(box.gameObject))
+            box.transform.parent = transform;
     }
 }
 
