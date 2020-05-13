@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2005,6 +2005,7 @@ MonoBehaviour:
   gravityScale: 5
   moveDirection: {x: 0, y: 0, z: 0}
   spring: {fileID: 1125284384}
+  inAir: 0
 --- !u!143 &127743430
 CharacterController:
   m_ObjectHideFlags: 0
@@ -7387,6 +7388,9 @@ MonoBehaviour:
   speed: 4
   delayTime: 0
   automatic: 1
+  moveVector: {x: 0, y: 0, z: 0}
+  momentumVector: {x: 0, y: 0, z: 0}
+  inAir: 0
 --- !u!65 &513232897
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12077,6 +12081,9 @@ MonoBehaviour:
   speed: 4
   delayTime: 0
   automatic: 1
+  moveVector: {x: 0, y: 0, z: 0}
+  momentumVector: {x: 0, y: 0, z: 0}
+  inAir: 0
 --- !u!65 &881849627
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21761,6 +21768,7 @@ MonoBehaviour:
   gravityScale: 5
   moveDirection: {x: 0, y: 0, z: 0}
   spring: {fileID: 1125284384}
+  inAir: 0
 --- !u!143 &1595139526
 CharacterController:
   m_ObjectHideFlags: 0
@@ -21772,13 +21780,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 0.1
-  m_Radius: 0.05
+  m_Height: 0
+  m_Radius: 0.043
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.055, z: 0.045}
+  m_Center: {x: 0, y: 0.047, z: 0}
 --- !u!54 &1595139527
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -21807,7 +21815,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b49822bc7ba14a96932b9a80b91bcdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  child: {fileID: 0}
 --- !u!4 &1595919485 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4160004270461786, guid: d4a69086e0bd5e440a2bda14734b225c,
@@ -22340,6 +22347,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   killPlane: {fileID: 0}
+  controller: {fileID: 0}
 --- !u!4 &1635466921
 Transform:
   m_ObjectHideFlags: 0
@@ -22933,6 +22941,9 @@ MonoBehaviour:
   speed: 4
   delayTime: 0
   automatic: 1
+  moveVector: {x: 0, y: 0, z: 0}
+  momentumVector: {x: 0, y: 0, z: 0}
+  inAir: 0
 --- !u!65 &1671065507
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -34548,6 +34559,9 @@ MonoBehaviour:
   - {x: -60, y: -2, z: 13}
   - {x: -60, y: -2, z: 30}
   tolerance: 0
-  speed: 4
+  speed: 8
   delayTime: 0
   automatic: 1
+  moveVector: {x: 0, y: 0, z: 0}
+  momentumVector: {x: 0, y: 0, z: 0}
+  inAir: 0

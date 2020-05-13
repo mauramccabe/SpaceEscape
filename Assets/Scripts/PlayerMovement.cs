@@ -18,9 +18,13 @@ public class PlayerMovement : MonoBehaviour {
 
     private bool springJump;
 
+    public bool inAir = false;
+
     public delegate void JumpHandler();
     public static event JumpHandler onJump;
     public static event JumpHandler onLand;
+    public static event JumpHandler onLeaveGround;
+
 
 
     void Start()
@@ -53,6 +57,7 @@ public class PlayerMovement : MonoBehaviour {
 
 
         if (controller.isGrounded) {
+            inAir = false;
             if ((lastGrounded != 0.2f) && (onLand != null))
                 onLand();
             moveDirection.y = 0f;
@@ -69,7 +74,23 @@ public class PlayerMovement : MonoBehaviour {
 
                 if(onJump != null)
                     onJump();
+                if (!inAir) {
+                    inAir = true;
+                    if (onLeaveGround != null) {
+                        onLeaveGround();
+                    }
+                }
             }
+        } 
+        else {
+            if (!inAir) {
+                inAir = true;
+                if(onLeaveGround != null) {
+                    onLeaveGround();
+                }
+                
+            }
+                
         }
 
 

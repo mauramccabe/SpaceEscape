@@ -7,16 +7,17 @@ using UnityEngine;
 public class SceneManager : MonoBehaviour {
     public GameObject player;
     public GameObject killPlane;
+    public CharacterController controller;
 
     public static SceneManager Instance { get; private set; }
     void Awake() {
 
-        if(Instance == null) { Instance = this; }
-        else { Destroy(gameObject);  }
+        if (Instance == null) { Instance = this; } else { Destroy(gameObject); }
 
         player = GameObject.FindGameObjectWithTag("Player");
         killPlane = GameObject.FindGameObjectWithTag("KillPlane");
+        controller = player.GetComponent<CharacterController>();
 
     }
-    
+
 }

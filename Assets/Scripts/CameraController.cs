@@ -61,9 +61,9 @@ public class CameraController : MonoBehaviour
 
         //prevent camera clipping through floor
 
-        if(transform.position.y < player.transform.position.y)
+        if(transform.position.y  < player.transform.position.y)
         {
-            transform.position = new Vector3(transform.position.x, player.transform.position.y - .5f, transform.position.z);
+            transform.position = new Vector3(transform.position.x, player.transform.position.y + .2f, transform.position.z);
         }
         transform.LookAt(player.transform);
     }
