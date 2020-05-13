@@ -28,6 +28,8 @@ public class PlayerMovement : MonoBehaviour {
     public static event JumpHandler onLand;
     public static event JumpHandler onLeaveGround;
 
+    private int dashType;
+
 
 
     void Start() {
@@ -95,12 +97,42 @@ public class PlayerMovement : MonoBehaviour {
                 canDash = false;
                 dashTime = .4f;
                 dashSpeed = 300;
+                if (Input.GetAxis("Vertical") > 0) {
+                    //foward
+                    dashType = 0;
+                } else if (Input.GetAxis("Vertical") < 0) {
+                    //back
+                    dashType = 1;
+                } else if (Input.GetAxis("Horizontal") > 0) {
+                    //right
+                    dashType = 2;
+                } else if (Input.GetAxis("Horizontal") < 0) {
+                    //left
+                    dashType = 3;
+                } else {
+                    //foward
+                    dashType = 0;
+                }
             }
         }
 
         if (dashTime > 0) {
             dashSpeed *= .65f;
-            moveDirection += transform.forward * dashSpeed;
+            switch (dashType) {
+                case 0:
+                    moveDirection += transform.forward * dashSpeed;
+                    break;
+                case 1:
+                    moveDirection += -transform.forward * dashSpeed;
+                    break;
+                case 2:
+                    moveDirection += transform.right * dashSpeed;
+                    break;
+                case 3:
+                    moveDirection += -transform.right * dashSpeed;
+                    break;
+            }
+
             dashTime -= Time.deltaTime;
         }
 
