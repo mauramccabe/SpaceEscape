@@ -4,7 +4,11 @@ using System.Collections;
 
 
 public class PickUpObject : MonoBehaviour {
+
 	private Transform player;
+	//public Transform head;
+	private float distanceFromPlayer;
+
 
 
 	public bool hasPlayer = false;
@@ -25,11 +29,9 @@ public class PickUpObject : MonoBehaviour {
 		startPosition = transform.position;
 		startRotation = transform.rotation;
 		player = SceneManager.Instance.player.transform;
+
 		killPlane = SceneManager.Instance.killPlane;
 	}
-
-
-
 
 
 	void OnTriggerEnter(Collider other) {
@@ -58,8 +60,14 @@ public class PickUpObject : MonoBehaviour {
 	
 	void Pickup(bool triggerPickup = true) {
 		rb.velocity = Vector3.zero;
-		rb.isKinematic = true;
+
+		rb.useGravity = false;
+
 		transform.parent = player;
+		//transform.position = head.position;
+
+
+
 		beingCarried = true;
 
 		if(triggerPickup && (onBoxPickup != null)) {
@@ -69,9 +77,10 @@ public class PickUpObject : MonoBehaviour {
 
 	void Drop(bool triggerDrop = true) {
 		rb.velocity = Vector3.zero;
-		rb.isKinematic = false;
+
 		rb.useGravity = true;
 		transform.parent = null;
+
 		beingCarried = false;
 
 		if (triggerDrop && (onBoxDrop != null)) { 
@@ -79,6 +88,10 @@ public class PickUpObject : MonoBehaviour {
 		} 
 	}
 	void Update() {
+
+		distanceFromPlayer = Vector3.Distance(player.position, transform.position);
+
+
 		if (killPlane.GetComponent<KillPlaneTrigger>().playerIsDead) { 
             if (rb && beingCarried) { 
 				Drop(false);
@@ -89,14 +102,19 @@ public class PickUpObject : MonoBehaviour {
 			if(Input.GetKeyDown("e")) {
 				Drop();
 			}
+			if(distanceFromPlayer > 5)
+			{
+				Drop();
+			}
 			
 			if(Input.GetKeyDown("e") && hasAnchor && hasPlayer) {
-				rb.isKinematic = true;
+				//rb.isKinematic = true;
 				rb.useGravity = false;
 				beingCarried = false;
 			}
 		} else {
 			if(Input.GetKeyDown("e") && hasPlayer) {
+				
 				Pickup();
 			}
 		}
