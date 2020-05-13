@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2006,6 +2006,7 @@ MonoBehaviour:
   moveDirection: {x: 0, y: 0, z: 0}
   spring: {fileID: 1125284384}
   inAir: 0
+  dashSpeed: 0
 --- !u!143 &127743430
 CharacterController:
   m_ObjectHideFlags: 0
@@ -7580,6 +7581,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasPlayer: 0
   beingCarried: 0
+  hasAnchor: 0
   startPosition: {x: 0, y: 0, z: 0}
   startRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!65 &542181486
@@ -11222,7 +11224,7 @@ GameObject:
   - component: {fileID: 836956355}
   m_Layer: 0
   m_Name: PlayerInteractTrigger
-  m_TagString: Untagged
+  m_TagString: PlayerTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11252,8 +11254,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 2, z: 0.5}
-  m_Center: {x: 0, y: 0, z: 0.75}
+  m_Size: {x: 0.10000001, y: 1.6266779, z: 0.6607492}
+  m_Center: {x: 0, y: 0.1866611, z: 0.8232069}
 --- !u!1001 &837580864
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15445,6 +15447,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasPlayer: 0
   beingCarried: 0
+  hasAnchor: 0
   startPosition: {x: 0, y: 0, z: 0}
   startRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!54 &1100408299
@@ -16384,6 +16387,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasPlayer: 0
   beingCarried: 0
+  hasAnchor: 0
   startPosition: {x: 0, y: 0, z: 0}
   startRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!65 &1164878719
@@ -19403,6 +19407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasPlayer: 0
   beingCarried: 0
+  hasAnchor: 0
   startPosition: {x: 0, y: 0, z: 0}
   startRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!65 &1392101235
@@ -21806,6 +21811,7 @@ MonoBehaviour:
   moveDirection: {x: 0, y: 0, z: 0}
   spring: {fileID: 1125284384}
   inAir: 0
+  dashSpeed: 0
 --- !u!143 &1595139526
 CharacterController:
   m_ObjectHideFlags: 0
@@ -21970,6 +21976,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasPlayer: 0
   beingCarried: 0
+  hasAnchor: 0
   startPosition: {x: 0, y: 0, z: 0}
   startRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!65 &1616469440
@@ -23987,6 +23994,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasPlayer: 0
   beingCarried: 0
+  hasAnchor: 0
   startPosition: {x: 0, y: 0, z: 0}
   startRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!54 &1742986616

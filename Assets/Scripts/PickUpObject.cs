@@ -14,7 +14,7 @@ public class PickUpObject : MonoBehaviour {
 	public bool hasPlayer = false;
 	public bool beingCarried = false;
 	Rigidbody rb;
-	bool hasAnchor = false;
+	public bool hasAnchor = false;
 
 
 	private GameObject killPlane;
@@ -31,14 +31,15 @@ public class PickUpObject : MonoBehaviour {
 		startRotation = transform.rotation;
 		player = SceneManager.Instance.player.transform;
 
+		rb = GetComponent<Rigidbody>();
 		killPlane = SceneManager.Instance.killPlane;
 	}
 
 
 	void OnTriggerEnter(Collider other) {
 
-		if (other.gameObject.tag == "Player") {
-			rb = GetComponent<Rigidbody>();
+		if (other.gameObject.tag == "PlayerTrigger") {
+			
 			hasPlayer = true;
 		}
        		
@@ -50,7 +51,7 @@ public class PickUpObject : MonoBehaviour {
 
 	void OnTriggerExit(Collider other) {
 
-		if (other.gameObject.tag == "Player") { 
+		if (other.gameObject.tag == "PlayerTrigger") { 
 			hasPlayer = false;
 		}
 
@@ -62,10 +63,19 @@ public class PickUpObject : MonoBehaviour {
 	
 	void Pickup(bool triggerPickup = true) {
 		rb.velocity = Vector3.zero;
+		rb.angularVelocity = Vector3.zero;
+		rb.isKinematic = false;
 
+		rb.useGravity = false;
 		transform.parent = player;
 		//transform.position = head.position;
 
+		//why does this work this way i am so confused.....
+		//why is the local position scaled so much. 0.1 translates to like 1 unit for some reason.
+		transform.localPosition = new Vector3(0f, 0.09f, 0f);
+		transform.rotation = Quaternion.Euler(Vector3.zero);
+		rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationX |
+			RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 		beingCarried = true;
 
 		if(triggerPickup && (onBoxPickup != null)) {
@@ -76,15 +86,25 @@ public class PickUpObject : MonoBehaviour {
 	void Drop(bool triggerDrop = true) {
 		rb.velocity = Vector3.zero;
 
+		rb.isKinematic = false;
 		rb.useGravity = true;
 		transform.parent = null;
 
 		beingCarried = false;
+		rb.constraints = 0;
+		 
 
 		if (triggerDrop && (onBoxDrop != null)) { 
 			onBoxDrop(gameObject);
 		} 
 	}
+
+	void Anchor() {
+		rb.isKinematic = true;
+		rb.useGravity = false;
+		beingCarried = false;
+	}
+
 	void Update() {
 
 		distanceFromPlayer = Vector3.Distance(player.position, transform.position);
@@ -100,7 +120,7 @@ public class PickUpObject : MonoBehaviour {
 			if(Input.GetKeyDown("e")) {
 				Drop();
 			}
-			if(distanceFromPlayer > 5)
+			if(distanceFromPlayer > 2)
 			{
 				Drop();
 			}
@@ -110,9 +130,7 @@ public class PickUpObject : MonoBehaviour {
 			}*/
 
 			if(Input.GetKeyDown("e") && hasAnchor && hasPlayer) {
-				//rb.isKinematic = true;
-				rb.useGravity = false;
-				beingCarried = false;
+				Anchor();
 			}
 		} else {
 			if(Input.GetKeyDown("e") && hasPlayer) {
