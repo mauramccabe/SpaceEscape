@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour {
     public Vector3 moveDirection;
 
     public GameObject spring;
+    Animator am;
 
     private float lastGrounded = 0;
 
@@ -25,12 +26,24 @@ public class PlayerMovement : MonoBehaviour {
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        am = gameObject.GetComponent<Animator>(); 
     }
 
     // probably need to change this to fixed update but will need some debugging so im not doing it rn
     void Update()
     {
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow)
+                                       || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)
+                                       || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            am.SetBool("IsWalking", true);
+        }
+        else if (!Input.anyKey)
+        {
+            am.SetBool("IsWalking", false);
+        }
         float yStore = moveDirection.y;
+        //For animations
         moveDirection = (transform.forward * Input.GetAxis("Vertical")) + (transform.right * Input.GetAxis("Horizontal"));
         
         //normalize movedirection so you dont get double speed when moving diagonally.
@@ -61,7 +74,7 @@ public class PlayerMovement : MonoBehaviour {
 
 
         if (springJump) {
-            moveDirection.y = jumpForce * 2;
+            moveDirection.y = jumpForce * 2.3f;
             springJump = false;
         }
 
@@ -75,4 +88,5 @@ public class PlayerMovement : MonoBehaviour {
             springJump = true;    
         }
     }
+   
 }
