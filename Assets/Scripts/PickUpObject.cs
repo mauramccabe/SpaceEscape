@@ -16,6 +16,7 @@ public class PickUpObject : MonoBehaviour {
 	Rigidbody rb;
 	bool hasAnchor = false;
 
+
 	private GameObject killPlane;
 
     public delegate void BoxHandler(GameObject box);
@@ -44,6 +45,7 @@ public class PickUpObject : MonoBehaviour {
 		if(other.gameObject.tag == "Anchor") {
 			hasAnchor = true;
 		}
+
 	}  
 
 	void OnTriggerExit(Collider other) {
@@ -61,12 +63,8 @@ public class PickUpObject : MonoBehaviour {
 	void Pickup(bool triggerPickup = true) {
 		rb.velocity = Vector3.zero;
 
-		rb.useGravity = false;
-
 		transform.parent = player;
 		//transform.position = head.position;
-
-
 
 		beingCarried = true;
 
@@ -106,7 +104,11 @@ public class PickUpObject : MonoBehaviour {
 			{
 				Drop();
 			}
-			
+/*			if(ramp == true)
+			{
+				rb.isKinematic = true;
+			}*/
+
 			if(Input.GetKeyDown("e") && hasAnchor && hasPlayer) {
 				//rb.isKinematic = true;
 				rb.useGravity = false;
