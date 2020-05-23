@@ -14,13 +14,22 @@ public class CameraController : MonoBehaviour
     public float rotateSpeed;
 
     public Transform pivot;
+    public Vector3 left1;
+    public Vector3 right1;
+
+    private Vector3 colisionCheck;
+    private Vector3 tempPosition;
+    private float rayLength;
+    RaycastHit hit;
 
     void Start()
     {
         offset =  player.transform.position - transform.position;
-        
-        
-        
+
+        colisionCheck = transform.position - player.transform.position;
+        rayLength = colisionCheck.magnitude;
+        //player = SceneManager.Instance.player;
+
         //place pivot on top of player
         pivot.transform.position = player.transform.position;
         //make pivot a child of player
@@ -33,10 +42,11 @@ public class CameraController : MonoBehaviour
     
     void LateUpdate()
     {
+        
         //get x position of mouse and rotate the player
         float horizontal = Input.GetAxis("Mouse X") * rotateSpeed;
         player.transform.Rotate(0, horizontal, 0);
-
+        
 
         //get y position of mouse and rotate the pivot
         float vertical = Input.GetAxis("Mouse Y") * rotateSpeed;
@@ -58,13 +68,27 @@ public class CameraController : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(desiredXAngle, desiredYAgngle, 0);
         transform.position = player.transform.position - (rotation * offset);
 
+        left1 = player.transform.position - (player.transform.right * 1.3f);
+        right1 = player.transform.position - (-player.transform.right * 1.3f);
+        colisionCheck = transform.position - player.transform.position;
+
+        if (Physics.Raycast(player.transform.position, colisionCheck, out hit, rayLength) &&
+                Physics.Raycast(left1, colisionCheck, rayLength) &&
+                Physics.Raycast(right1, colisionCheck, rayLength)) {
+            if (!(hit.collider.tag == "Player") && !(hit.collider.tag == "Box")) {
+                transform.position = hit.point;
+            }
+        } else {
+            transform.position = player.transform.position - (rotation * offset);
+        }
 
         //prevent camera clipping through floor
-
-        if(transform.position.y  < player.transform.position.y)
+        if (transform.position.y  < (player.transform.position.y + .2f))
         {
             transform.position = new Vector3(transform.position.x, player.transform.position.y + .2f, transform.position.z);
         }
         transform.LookAt(player.transform);
+
+        
     }
 }
