@@ -70,25 +70,22 @@ public class CameraController : MonoBehaviour
 
         left1 = player.transform.position - (player.transform.right * 1.3f);
         right1 = player.transform.position - (-player.transform.right * 1.3f);
-        colisionCheck = transform.position - player.transform.position;
-
-        if (Physics.Raycast(player.transform.position, colisionCheck, out hit, rayLength) &&
-                Physics.Raycast(left1, colisionCheck, rayLength) &&
-                Physics.Raycast(right1, colisionCheck, rayLength)) {
-            if (!(hit.collider.tag == "Player") && !(hit.collider.tag == "Box")) {
-                transform.position = hit.point;
-            }
-        } else {
-            transform.position = player.transform.position - (rotation * offset);
-        }
+        colisionCheck = (transform.position - player.transform.position); //* 1.5f;
 
         //prevent camera clipping through floor
         if (transform.position.y  < (player.transform.position.y + .2f))
         {
             transform.position = new Vector3(transform.position.x, player.transform.position.y + .2f, transform.position.z);
+        } else 
+        if (Physics.Raycast(player.transform.position, colisionCheck, out hit, rayLength) &&
+                Physics.Raycast(left1, colisionCheck, rayLength) &&
+                Physics.Raycast(right1, colisionCheck, rayLength)) {
+            if (!(hit.collider.tag == "Player") && !(hit.collider.tag == "Box")) {
+                transform.position = hit.point; //+ ((player.transform.position - hit.point) * 0.15f);
+            }
+        } else {
+            transform.position = player.transform.position - (rotation * offset);
         }
         transform.LookAt(player.transform);
-
-        
     }
 }
