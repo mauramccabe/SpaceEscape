@@ -17,17 +17,27 @@ public class CameraController : MonoBehaviour
     public Vector3 left1;
     public Vector3 right1;
 
-    private Vector3 colisionCheck;
+    private Vector3 colisionDirection;
+    private Vector3 rightColisionDirection;
+    private Vector3 leftColisionDirection;
     private Vector3 tempPosition;
     private float rayLength;
+    public double timeCameraIsColliding = 0.0d;
+    public bool leftHit;
+    public bool centerHit;
+    public bool rightHit;
     RaycastHit hit;
+    RaycastHit hit1;
+    RaycastHit hit2;
+
 
     void Start()
     {
-        offset =  player.transform.position - transform.position;
+        offset = player.transform.position - transform.position;
 
-        colisionCheck = transform.position - player.transform.position;
-        rayLength = colisionCheck.magnitude;
+        colisionDirection = transform.position - player.transform.position;
+
+        rayLength = colisionDirection.magnitude;
         //player = SceneManager.Instance.player;
 
         //place pivot on top of player
@@ -68,23 +78,41 @@ public class CameraController : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(desiredXAngle, desiredYAgngle, 0);
         transform.position = player.transform.position - (rotation * offset);
 
-        left1 = player.transform.position - (player.transform.right * 1.3f);
-        right1 = player.transform.position - (-player.transform.right * 1.3f);
-        colisionCheck = (transform.position - player.transform.position); //* 1.5f;
+        left1 = (player.transform.position - (player.transform.right * .69f)) + (player.transform.up *.8f);
+        right1 = (player.transform.position - (-player.transform.right * .69f)) + (player.transform.up *.8f);
+        colisionDirection = (transform.position - player.transform.position); //* 1.5f;
+        leftColisionDirection = transform.position - left1;
+        rightColisionDirection = transform.position - right1;
+
 
         //prevent camera clipping through floor
-        if (transform.position.y  < (player.transform.position.y + .2f))
-        {
+        if (transform.position.y < (player.transform.position.y + .2f)) {
             transform.position = new Vector3(transform.position.x, player.transform.position.y + .2f, transform.position.z);
-        } else 
-        if (Physics.Raycast(player.transform.position, colisionCheck, out hit, rayLength) &&
-                Physics.Raycast(left1, colisionCheck, rayLength) &&
-                Physics.Raycast(right1, colisionCheck, rayLength)) {
-            if (!(hit.collider.tag == "Player") && !(hit.collider.tag == "Box")) {
-                transform.position = hit.point; //+ ((player.transform.position - hit.point) * 0.15f);
+        } else { //camera wall clip logic
+
+            centerHit = Physics.Raycast(player.transform.position, colisionDirection, out hit, rayLength * 1.0f);
+            leftHit = Physics.Raycast(left1, leftColisionDirection,out hit1, rayLength * 1.0f);
+            rightHit = Physics.Raycast(right1, rightColisionDirection,out hit2, rayLength * 1.0f);
+            if (centerHit) {
+                Debug.DrawRay(player.transform.position, colisionDirection.normalized *hit.distance , Color.yellow);
             }
-        } else {
-            transform.position = player.transform.position - (rotation * offset);
+            if (leftHit) {
+                Debug.DrawRay(left1, leftColisionDirection.normalized *hit1.distance , Color.yellow);
+            }
+            if (rightHit) {
+                Debug.DrawRay(right1, rightColisionDirection.normalized *hit2.distance , Color.yellow);
+            }
+
+
+            if (centerHit && leftHit && rightHit) {
+                timeCameraIsColliding += Time.deltaTime;
+               
+                transform.position = hit.point; //+ ((player.transform.position - hit.point) * 0.15f);
+               
+            } else {
+                transform.position = player.transform.position - (rotation * offset);
+                timeCameraIsColliding = 0.0d;
+            }
         }
         transform.LookAt(player.transform);
     }

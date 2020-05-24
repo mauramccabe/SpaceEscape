@@ -30,6 +30,9 @@ public class PlayerMovement : MonoBehaviour {
 
     private int dashType;
 
+    private bool tryJump = false;
+    private bool tryDash = false;
+
 
 
     void Start() {
@@ -37,7 +40,6 @@ public class PlayerMovement : MonoBehaviour {
         am = gameObject.GetComponent<Animator>();
     }
 
-    // probably need to change this to fixed update but will need some debugging so im not doing it rn
     void Update() {
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow)
                                        || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)
@@ -46,15 +48,6 @@ public class PlayerMovement : MonoBehaviour {
         } else if (!Input.anyKey) {
             am.SetBool("IsWalking", false);
         }
-        float yStore = moveDirection.y;
-        //For animations
-        moveDirection = (transform.forward * Input.GetAxis("Vertical")) + (transform.right * Input.GetAxis("Horizontal"));
-
-        //normalize movedirection so you dont get double speed when moving diagonally.
-        moveDirection = Vector3.ClampMagnitude(moveDirection, 1) * moveSpeed;
-        moveDirection.y = yStore;
-
-
 
         if (controller.isGrounded) {
             inAir = false;
@@ -68,8 +61,32 @@ public class PlayerMovement : MonoBehaviour {
             lastGrounded = lastGrounded - Time.deltaTime;
         }
 
+        if (Input.GetButtonDown("Jump")) {
+            tryJump = true;
+        }
+        if (Input.GetKeyDown("left shift")) {
+            tryDash = true;
+        }
+
+    }
+
+    // probably need to change this to fixed update but will need some debugging so im not doing it rn
+    void FixedUpdate() {
+        
+        float yStore = moveDirection.y;
+        //For animations
+        moveDirection = (transform.forward * Input.GetAxis("Vertical")) + (transform.right * Input.GetAxis("Horizontal"));
+
+        //normalize movedirection so you dont get double speed when moving diagonally.
+        moveDirection = Vector3.ClampMagnitude(moveDirection, 1) * moveSpeed;
+        moveDirection.y = yStore;
+
+
+
+        
+
         if (lastGrounded > 0) {
-            if (Input.GetButtonDown("Jump")) {
+            if (tryJump) {
                 moveDirection.y = jumpForce;
                 lastGrounded = 0f;
 
@@ -92,8 +109,9 @@ public class PlayerMovement : MonoBehaviour {
             }
 
         }
+        tryJump = false;
         if (inAir && canDash) {
-            if (Input.GetKeyDown("left shift")) {
+            if (tryDash) {
                 canDash = false;
                 dashTime = .4f;
                 dashSpeed = 300;
@@ -115,7 +133,7 @@ public class PlayerMovement : MonoBehaviour {
                 }
             }
         }
-
+        tryDash = false;
         if (dashTime > 0) {
             dashSpeed *= .65f;
             switch (dashType) {
