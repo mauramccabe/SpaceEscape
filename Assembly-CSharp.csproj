@@ -72,6 +72,7 @@
      <Compile Include="Assets\Scripts\Spring.cs" />
      <Compile Include="Assets\Scripts\TwoPlateController.cs" />
      <Compile Include="Assets\Scripts\TwoPressurePlates.cs" />
+     <None Include="Assets\Desert Buildings\Read me.txt" />
      <None Include="Assets\race-track-lake\readmore.txt" />
      <None Include="Assets\ScannedRocks\BonusShaders\Old\SnowOnRockShader.shader" />
      <None Include="Assets\race-track-lake\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
