@@ -1,0 +1,28 @@
+﻿<Properties StartupConfiguration="{8F77EE67-8C11-459E-BF40-8DB46270F113}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/FirstPressurePlate.cs">
+    <Files>
+      <File FileName="Assets/Scripts/FirstPressurePlate.cs" Line="19" Column="1" />
+      <File FileName="Assets/Scripts/PressurePlate.cs" Line="5" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="SpaceEscape" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="FirstPressurePlate.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="0b44254e-cafc-4207-9973-0b2b7982398d" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
