@@ -17,7 +17,7 @@ public class PickUpObject : MonoBehaviour {
 	public bool hasAnchor = false;
 
 
-	private GameObject killPlane;
+	private KillPlaneTrigger killPlane;
 
     public delegate void BoxHandler(GameObject box);
 	public static event BoxHandler onBoxDrop;
@@ -25,6 +25,9 @@ public class PickUpObject : MonoBehaviour {
 
 	public Vector3 startPosition;
 	public Quaternion startRotation;
+
+	private Vector3 desiredPosition = new Vector3(0f, 0.0905f, 0f);
+	private Vector3 velocity = Vector3.zero;
 
 	void Start() {
 		startPosition = transform.position;
@@ -72,7 +75,7 @@ public class PickUpObject : MonoBehaviour {
 
 		//why does this work this way i am so confused.....
 		//why is the local position scaled so much. 0.1 translates to like 1 unit for some reason.
-		transform.localPosition = new Vector3(0f, 0.09f, 0f);
+		transform.localPosition = desiredPosition;
 		transform.rotation = Quaternion.Euler(Vector3.zero);
 		rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationX |
 			RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
@@ -105,38 +108,44 @@ public class PickUpObject : MonoBehaviour {
 		beingCarried = false;
 	}
 
+	void FixedUpdate() {
+		if (beingCarried) {
+			//transform.localPosition = Vector3.SmoothDamp(transform.localPosition, desiredPosition, ref velocity, 1.0f);
+			//transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.Euler(Vector3.zero), Time.time * 0.1f);
+		}	
+	}
+
+
 	void Update() {
 
 		distanceFromPlayer = Vector3.Distance(player.position, transform.position);
 
 
-		if (killPlane.GetComponent<KillPlaneTrigger>().playerIsDead) { 
+		if (killPlane.playerIsDead) { 
             if (rb && beingCarried) { 
 				Drop(false);
             }	
 		}
 
 		if(beingCarried) {
-			if(Input.GetKeyDown("e")) {
+			
+			if (Input.GetKeyDown("e")) {
 				Drop();
 			}
-			if(distanceFromPlayer > 2)
-			{
-				Drop();
-			}
-/*			if(ramp == true)
-			{
-				rb.isKinematic = true;
-			}*/
 
-			if(Input.GetKeyDown("e") && hasAnchor && hasPlayer) {
+			if(distanceFromPlayer > 2) {
+				Drop();
+			}
+
+			if(Input.GetKeyDown("e") && hasAnchor) {
 				Anchor();
 			}
-		} else {
-			if(Input.GetKeyDown("e") && hasPlayer) {
+
+
+		} else if(Input.GetKeyDown("e") && hasPlayer) {
 				
 				Pickup();
-			}
 		}
+		
 	}
 }

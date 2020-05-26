@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class SceneManager : MonoBehaviour {
     public GameObject player;
-    public GameObject killPlane;
+    public KillPlaneTrigger killPlane;
     public CharacterController controller;
 
     public static SceneManager Instance { get; private set; }
@@ -15,7 +15,7 @@ public class SceneManager : MonoBehaviour {
         if (Instance == null) { Instance = this; } else { Destroy(gameObject); }
 
         player = GameObject.FindGameObjectWithTag("Player");
-        killPlane = GameObject.FindGameObjectWithTag("KillPlane");
+        killPlane = GameObject.FindGameObjectWithTag("KillPlane").GetComponent<KillPlaneTrigger>();
         controller = player.GetComponent<CharacterController>();
 
     }
