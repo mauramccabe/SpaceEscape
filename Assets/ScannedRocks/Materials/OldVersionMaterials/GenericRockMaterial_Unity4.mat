@@ -40,6 +40,6 @@ Material:
     - _Shininess: 2.3020215
     - _SpecInt: 1
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.33962262, g: 0.020825924, b: 0.020825924, a: 1}
     - _ReflectColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
