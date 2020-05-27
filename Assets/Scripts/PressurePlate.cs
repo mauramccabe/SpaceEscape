@@ -6,13 +6,15 @@ public class PressurePlate : MonoBehaviour
 {
     [SerializeField]
     GameObject door;
+    public Vector3 up;
+    public Vector3 down;
 
     void OnTriggerEnter(Collider col)
     {
-        door.transform.position = door.transform.position + new Vector3(0, -4, 0);
+        door.transform.position = door.transform.position + up;
     }
     void OnTriggerExit(Collider col)
     {
-        door.transform.position = door.transform.position + new Vector3(0, 4, 0);
+        door.transform.position = door.transform.position + down;
     }
 }

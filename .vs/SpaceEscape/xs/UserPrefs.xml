@@ -1,9 +1,8 @@
 ﻿<Properties StartupConfiguration="{8F77EE67-8C11-459E-BF40-8DB46270F113}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PressurePlate.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerMovement.cs">
     <Files>
-      <File FileName="Assets/Scripts/FirstPressurePlate.cs" Line="19" Column="1" />
-      <File FileName="Assets/Scripts/PressurePlate.cs" Line="8" Column="1" />
-      <File FileName="Assets/Scripts/RockMovement.cs" />
+      <File FileName="Assets/Scripts/Rotate.cs" Line="12" Column="6" />
+      <File FileName="Assets/Scripts/PlayerMovement.cs" Line="60" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -11,7 +10,7 @@
           <Node name="SpaceEscape" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="PressurePlate.cs" selected="True" />
+                <Node name="PlayerMovement.cs" selected="True" />
               </Node>
             </Node>
           </Node>

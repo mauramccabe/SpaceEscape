@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour {
 
     public bool inAir = false;
     private bool canDash = true;
+    private bool jumpflag = false;
     private float dashTime = 0;
     public float dashSpeed;
 
@@ -51,14 +52,19 @@ public class PlayerMovement : MonoBehaviour {
 
         if (controller.isGrounded) {
             inAir = false;
+            jumpflag = false;
             canDash = true;
             if ((lastGrounded != 0.2f) && (onLand != null))
                 onLand();
             moveDirection.y = 0f;
             lastGrounded = 0.2f;
 
-        } else if (lastGrounded > 0) {
-            lastGrounded = lastGrounded - Time.deltaTime;
+        } else if (lastGrounded > 0 )
+        {
+            if (!jumpflag) //this is for the jump orb 
+            {
+                lastGrounded = lastGrounded - Time.deltaTime;
+            }
         }
 
         if (Input.GetButtonDown("Jump")) {
@@ -86,8 +92,17 @@ public class PlayerMovement : MonoBehaviour {
         
 
         if (lastGrounded > 0) {
-            if (tryJump) {
-                moveDirection.y = jumpForce;
+            if (tryJump)
+            {
+                if (jumpflag)
+                {
+                    moveDirection.y = jumpForce * 1.5f;
+                }
+                else
+                {
+                    moveDirection.y = jumpForce;
+                }
+                jumpflag = false;
                 lastGrounded = 0f;
 
                 if (onJump != null)
@@ -169,6 +184,16 @@ public class PlayerMovement : MonoBehaviour {
         if (other.gameObject.tag == "Spring") {
             springJump = true;
         }
+        else if (other.gameObject.tag == "JumpOrb")
+        {
+            other.gameObject.SetActive(true);
+            lastGrounded = 0.2f;
+            jumpflag = true;
+        }
+        else if (other.gameObject.tag == "DashOrb")
+        {
+            other.gameObject.SetActive(true);
+            canDash = true;
+        }
     }
-
 }

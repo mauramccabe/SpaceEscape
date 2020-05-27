@@ -9,6 +9,9 @@ TagManager:
   - Anchor
   - KillPlane
   - PlayerTrigger
+  - Wall
+  - JumpOrb
+  - DashOrb
   layers:
   - Default
   - TransparentFX
