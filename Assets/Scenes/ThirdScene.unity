@@ -130,7 +130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 14369595}
   - component: {fileID: 14369596}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -916,6 +916,19 @@ MonoBehaviour:
   moveVector: {x: 0, y: 0, z: 0}
   momentumVector: {x: 0, y: 0, z: 0}
   inAir: 0
+--- !u!65 &53981702
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 53981696}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 96.80181, y: 27.537441, z: 103.487625}
+  m_Center: {x: 0, y: 13.341122, z: 0}
 --- !u!1001 &69982954
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1176,6 +1189,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock7 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: cd676caed5fc5ea44a18c9bef8922efb, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cd676caed5fc5ea44a18c9bef8922efb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 63.81
@@ -1426,6 +1443,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: JumpOrb
       objectReference: {fileID: 0}
+    - target: {fileID: 9094294514760621384, guid: e0a3bc109757644d68eeaad33623d0a2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 9094294514760621381, guid: e0a3bc109757644d68eeaad33623d0a2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1501,6 +1523,11 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9094294513472992835, guid: e0a3bc109757644d68eeaad33623d0a2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0a3bc109757644d68eeaad33623d0a2, type: 3}
 --- !u!1 &143985121
@@ -1513,7 +1540,7 @@ GameObject:
   m_Component:
   - component: {fileID: 143985122}
   - component: {fileID: 143985123}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1861,7 +1888,7 @@ GameObject:
   m_Component:
   - component: {fileID: 235472503}
   - component: {fileID: 235472504}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2177,6 +2204,64 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: a179ee0b13fc5df4ca38863f7960596b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd676caed5fc5ea44a18c9bef8922efb, type: 3}
+--- !u!1 &278836408
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 278836409}
+  - component: {fileID: 278836411}
+  - component: {fileID: 278836410}
+  m_Layer: 2
+  m_Name: Checkpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &278836409
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278836408}
+  m_LocalRotation: {x: -0, y: 0.06603938, z: -0, w: 0.99781704}
+  m_LocalPosition: {x: 67.9, y: 84.6, z: 130.9}
+  m_LocalScale: {x: 41.443924, y: 15.562703, z: 2.8362825}
+  m_Children: []
+  m_Father: {fileID: 700636422}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 7.5730004, z: 0}
+--- !u!114 &278836410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278836408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9668682f76c2cbe46b63abc8e56380f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnLocation: {x: 64, y: 83, z: 142}
+--- !u!65 &278836411
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278836408}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &281793907 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9094294514760621381, guid: e0a3bc109757644d68eeaad33623d0a2,
@@ -3132,6 +3217,64 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &439258276
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 439258277}
+  - component: {fileID: 439258279}
+  - component: {fileID: 439258278}
+  m_Layer: 2
+  m_Name: Checkpoint (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &439258277
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439258276}
+  m_LocalRotation: {x: -0, y: 0.06603938, z: -0, w: 0.99781704}
+  m_LocalPosition: {x: 59.6, y: 83.8, z: 260}
+  m_LocalScale: {x: 82.67234, y: 25.872993, z: 14.53296}
+  m_Children: []
+  m_Father: {fileID: 700636422}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 7.5730004, z: 0}
+--- !u!114 &439258278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439258276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9668682f76c2cbe46b63abc8e56380f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnLocation: {x: 61, y: 74.8, z: 280}
+--- !u!65 &439258279
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439258276}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &447995008
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3740,6 +3883,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: JumpOrb (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 9094294514760621384, guid: e0a3bc109757644d68eeaad33623d0a2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 9094294514760621381, guid: e0a3bc109757644d68eeaad33623d0a2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3814,6 +3962,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Radius
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9094294513472992835, guid: e0a3bc109757644d68eeaad33623d0a2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0a3bc109757644d68eeaad33623d0a2, type: 3}
@@ -4239,6 +4392,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DashOrb
       objectReference: {fileID: 0}
+    - target: {fileID: 7052451050454764186, guid: eac7d09ef29844761af01eb71aec6a63,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7052451050454764182, guid: eac7d09ef29844761af01eb71aec6a63,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4293,6 +4451,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7052451050453124808, guid: eac7d09ef29844761af01eb71aec6a63,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eac7d09ef29844761af01eb71aec6a63, type: 3}
@@ -4612,6 +4775,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: JumpOrb (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 9094294514760621384, guid: e0a3bc109757644d68eeaad33623d0a2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 9094294514760621381, guid: e0a3bc109757644d68eeaad33623d0a2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4667,6 +4835,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9094294513472992835, guid: e0a3bc109757644d68eeaad33623d0a2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0a3bc109757644d68eeaad33623d0a2, type: 3}
 --- !u!4 &638301337 stripped
@@ -4675,6 +4848,97 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 638301336}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &641698656
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 641698658}
+  - component: {fileID: 641698657}
+  m_Layer: 0
+  m_Name: Point Light (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!108 &641698657
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641698656}
+  m_Enabled: 1
+  serializedVersion: 9
+  m_Type: 2
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_Range: 10
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!4 &641698658
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641698656}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 60.9, y: 74.8, z: 280.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &646964187 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: cd676caed5fc5ea44a18c9bef8922efb,
@@ -4712,6 +4976,51 @@ MonoBehaviour:
   moveVector: {x: 0, y: 0, z: 0}
   momentumVector: {x: 0, y: 0, z: 0}
   inAir: 0
+--- !u!65 &646964193
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 646964187}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 96.80183, y: 28.999615, z: 103.487625}
+  m_Center: {x: 0, y: 14.072208, z: 0}
+--- !u!1 &700636421
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 700636422}
+  m_Layer: 0
+  m_Name: Checkpoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &700636422
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700636421}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 278836409}
+  - {fileID: 439258277}
+  m_Father: {fileID: 0}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -7821,7 +8130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1105057976}
   - component: {fileID: 1105057977}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7985,7 +8294,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1120253348}
   - component: {fileID: 1120253349}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8371,7 +8680,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1168596343}
   - component: {fileID: 1168596344}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9134,6 +9443,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: JumpOrb
       objectReference: {fileID: 0}
+    - target: {fileID: 9094294514760621384, guid: e0a3bc109757644d68eeaad33623d0a2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 9094294514760621381, guid: e0a3bc109757644d68eeaad33623d0a2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9188,6 +9502,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9094294513472992835, guid: e0a3bc109757644d68eeaad33623d0a2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0a3bc109757644d68eeaad33623d0a2, type: 3}
@@ -9825,7 +10144,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1426344995}
   - component: {fileID: 1426344996}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9918,6 +10237,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: JumpOrb (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 9094294514760621384, guid: e0a3bc109757644d68eeaad33623d0a2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 9094294514760621381, guid: e0a3bc109757644d68eeaad33623d0a2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9992,6 +10316,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Radius
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9094294513472992835, guid: e0a3bc109757644d68eeaad33623d0a2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0a3bc109757644d68eeaad33623d0a2, type: 3}
@@ -10302,6 +10631,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DashOrb (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7052451050454764186, guid: eac7d09ef29844761af01eb71aec6a63,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7052451050454764182, guid: eac7d09ef29844761af01eb71aec6a63,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10356,6 +10690,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7052451050453124808, guid: eac7d09ef29844761af01eb71aec6a63,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eac7d09ef29844761af01eb71aec6a63, type: 3}
@@ -10508,6 +10847,19 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 14875846}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1590146996
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1590146990}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 96.80181, y: 28.685074, z: 103.487625}
+  m_Center: {x: 0, y: 13.914938, z: 0}
 --- !u!1 &1595139521 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1528915638184230, guid: 8e0f285c21cdcf14e8d5c06c57ba936b,
@@ -10592,6 +10944,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: JumpOrb (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 9094294514760621384, guid: e0a3bc109757644d68eeaad33623d0a2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 9094294514760621381, guid: e0a3bc109757644d68eeaad33623d0a2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10666,6 +11023,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Radius
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9094294513472992835, guid: e0a3bc109757644d68eeaad33623d0a2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0a3bc109757644d68eeaad33623d0a2, type: 3}
@@ -11556,6 +11918,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock7 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: cd676caed5fc5ea44a18c9bef8922efb, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cd676caed5fc5ea44a18c9bef8922efb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 67.69
@@ -12253,6 +12619,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: JumpOrb (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9094294514760621384, guid: e0a3bc109757644d68eeaad33623d0a2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 9094294514760621381, guid: e0a3bc109757644d68eeaad33623d0a2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12327,6 +12698,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Radius
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9094294513472992835, guid: e0a3bc109757644d68eeaad33623d0a2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0a3bc109757644d68eeaad33623d0a2, type: 3}
@@ -12512,7 +12888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6c7f8400ea22e142b9d390cf06c6a10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnPoint: {x: 42.3, y: 93.4, z: 325.3}
+  respawnPoint: {x: 0.1, y: 3.6, z: -27}
   playerIsDead: 0
 --- !u!65 &1793577628
 BoxCollider:
@@ -12667,7 +13043,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1843257976}
   - component: {fileID: 1843257977}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12858,6 +13234,19 @@ MonoBehaviour:
   moveVector: {x: 0, y: 0, z: 0}
   momentumVector: {x: 0, y: 0, z: 0}
   inAir: 0
+--- !u!65 &1862494028
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1862494022}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 96.80183, y: 28.332176, z: 103.48764}
+  m_Center: {x: 0, y: 13.738489, z: 0}
 --- !u!1 &1888143794
 GameObject:
   m_ObjectHideFlags: 0
@@ -13361,7 +13750,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1983747463}
   - component: {fileID: 1983747464}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18841,6 +19230,19 @@ MonoBehaviour:
   moveVector: {x: 0, y: 0, z: 0}
   momentumVector: {x: 0, y: 0, z: 0}
   inAir: 0
+--- !u!65 &2125671917
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125671911}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 96.80183, y: 29.806337, z: 103.48764}
+  m_Center: {x: 0, y: 14.47557, z: 0}
 --- !u!1 &2128576114
 GameObject:
   m_ObjectHideFlags: 0

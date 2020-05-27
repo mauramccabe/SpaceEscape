@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 //https://www.youtube.com/watch?v=h2d9Wc3Hhi0
 
@@ -41,7 +42,12 @@ public class PlayerMovement : MonoBehaviour {
         am = gameObject.GetComponent<Animator>();
     }
 
-    void Update() {
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.P))
+        {
+            //Scene sc = SceneManager.GetActiveScene();
+        }
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow)
                                        || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)
                                        || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow)) {
@@ -52,7 +58,6 @@ public class PlayerMovement : MonoBehaviour {
 
         if (controller.isGrounded) {
             inAir = false;
-            jumpflag = false;
             canDash = true;
             if ((lastGrounded != 0.2f) && (onLand != null))
                 onLand();

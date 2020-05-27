@@ -81,9 +81,11 @@
     <Compile Include="Assets\Scripts\PressurePlate.cs" />
     <Compile Include="Assets\Scripts\PressurePlateMars.cs" />
     <Compile Include="Assets\Scripts\RockMovement.cs" />
+    <Compile Include="Assets\Scripts\RockPressurePlate.cs" />
     <Compile Include="Assets\Scripts\Rotate.cs" />
     <Compile Include="Assets\Scripts\SceneManager.cs" />
     <Compile Include="Assets\Scripts\Spring.cs" />
+    <Compile Include="Assets\Scripts\springPressurePlate.cs" />
     <Compile Include="Assets\Scripts\TwoPlateController.cs" />
     <Compile Include="Assets\Scripts\TwoPressurePlates.cs" />
     <None Include="Assets\Desert Buildings\Read me.txt" />
