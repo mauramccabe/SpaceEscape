@@ -35,27 +35,33 @@ public class PlayerMovement : MonoBehaviour {
     private bool tryJump = false;
     private bool tryDash = false;
 
+    int sc;
+    bool changeScene = false;
 
 
-    void Start() {
+  
+   
+   void Start() {
         controller = GetComponent<CharacterController>();
         am = gameObject.GetComponent<Animator>();
     }
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Y))
-        {
-            int sc = SceneManager.GetActiveScene().buildIndex;
-            if(sc == 2)
-            {
-                SceneManager.LoadScene(0);
-            }
-            else
-            {
-                SceneManager.LoadScene(sc + 1);
-            }
+
+        if (Input.GetKey(KeyCode.Alpha1)) {
+            changeScene = true;
+            sc = 0;
         }
+        if (Input.GetKey(KeyCode.Alpha2)) {
+            sc = 1;
+            changeScene = true;
+        }
+        if (Input.GetKey(KeyCode.Alpha3)) {
+            sc = 2;
+            changeScene = true;
+        }
+
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow)
                                        || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)
                                        || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow)) {
@@ -91,7 +97,13 @@ public class PlayerMovement : MonoBehaviour {
 
     // probably need to change this to fixed update but will need some debugging so im not doing it rn
     void FixedUpdate() {
-        
+
+        if (changeScene) {
+            SceneManager.LoadScene(sc);
+            changeScene = false;
+        }
+
+
         float yStore = moveDirection.y;
         //For animations
         moveDirection = (transform.forward * Input.GetAxis("Vertical")) + (transform.right * Input.GetAxis("Horizontal"));
