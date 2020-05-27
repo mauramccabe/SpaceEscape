@@ -1,10 +1,10 @@
 ﻿<Properties StartupConfiguration="{8F77EE67-8C11-459E-BF40-8DB46270F113}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Tutorial.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/SceneTrigger.cs">
     <Files>
       <File FileName="Assets/Scripts/Rotate.cs" Line="12" Column="6" />
       <File FileName="Assets/Scripts/PlayerMovement.cs" Line="4" Column="1" />
       <File FileName="Assets/Scripts/SceneTrigger.cs" Line="20" Column="6" />
-      <File FileName="Assets/Scripts/Tutorial.cs" Line="10" Column="9" />
+      <File FileName="Assets/Scripts/Tutorial.cs" Line="30" Column="29" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
