@@ -50,12 +50,14 @@ public class RockMovement : MonoBehaviour {
     }
     void FixedUpdate() {
         if (transform.position != currentTarget) {
-            MovePlatform();
-            if (playerIsChild) {
-                if (inAir) {
-                    MySceneManager.Instance.controller.Move(momentumVector);
-                } else {
-                    MySceneManager.Instance.controller.Move(moveVector);
+            if (automatic) {
+                MovePlatform();
+                if (playerIsChild) {
+                    if (inAir) {
+                        MySceneManager.Instance.controller.Move(momentumVector);
+                    } else {
+                        MySceneManager.Instance.controller.Move(moveVector);
+                    }
                 }
             }
         } else {
@@ -85,11 +87,11 @@ public class RockMovement : MonoBehaviour {
     }
 
     void UpdateTarget() {
-        if (automatic) {
-            if (Time.time - delayStart > delayTime) {
-                NextPlatform();
-            }
+        
+        if (Time.time - delayStart > delayTime) {
+            NextPlatform();
         }
+        
     }
 
     public void NextPlatform() {
