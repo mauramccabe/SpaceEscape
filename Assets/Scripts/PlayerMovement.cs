@@ -44,9 +44,17 @@ public class PlayerMovement : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.P))
+        if (Input.GetKey(KeyCode.Y))
         {
-            //Scene sc = SceneManager.GetActiveScene();
+            int sc = SceneManager.GetActiveScene().buildIndex;
+            if(sc == 2)
+            {
+                SceneManager.LoadScene(0);
+            }
+            else
+            {
+                SceneManager.LoadScene(sc + 1);
+            }
         }
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow)
                                        || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)

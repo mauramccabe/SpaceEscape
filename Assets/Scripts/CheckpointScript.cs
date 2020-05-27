@@ -17,7 +17,7 @@ public class CheckpointScript : MonoBehaviour {
                 print("Need to assign a spawnlocation to checkpoint (or you tried to use (0,0,0))");
                 return; 
             }
-            SceneManager.Instance.killPlane.respawnPoint = respawnLocation;
+            MySceneManager.Instance.killPlane.respawnPoint = respawnLocation;
 
 
         }

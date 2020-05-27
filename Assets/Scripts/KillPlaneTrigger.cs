@@ -33,7 +33,7 @@ public class KillPlaneTrigger : MonoBehaviour {
     }
 
     void Respawn() {
-        SceneManager.Instance.player.transform.position = respawnPoint;
+        MySceneManager.Instance.player.transform.position = respawnPoint;
         playerIsDead = false;
         Physics.SyncTransforms();
     }

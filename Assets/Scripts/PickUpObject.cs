@@ -32,10 +32,10 @@ public class PickUpObject : MonoBehaviour {
 	void Start() {
 		startPosition = transform.position;
 		startRotation = transform.rotation;
-		player = SceneManager.Instance.player.transform;
+		player = MySceneManager.Instance.player.transform;
 
 		rb = GetComponent<Rigidbody>();
-		killPlane = SceneManager.Instance.killPlane;
+		killPlane = MySceneManager.Instance.killPlane;
 	}
 
 

@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\FourPlateController.cs" />
     <Compile Include="Assets\Scripts\FourPressurePlate.cs" />
     <Compile Include="Assets\Scripts\KillPlaneTrigger.cs" />
+    <Compile Include="Assets\Scripts\MySceneManager.cs" />
     <Compile Include="Assets\Scripts\PauseGame.cs" />
     <Compile Include="Assets\Scripts\PickUpObject.cs" />
     <Compile Include="Assets\Scripts\playerCameraTest.cs" />
@@ -83,7 +84,6 @@
     <Compile Include="Assets\Scripts\RockMovement.cs" />
     <Compile Include="Assets\Scripts\RockPressurePlate.cs" />
     <Compile Include="Assets\Scripts\Rotate.cs" />
-    <Compile Include="Assets\Scripts\SceneManager.cs" />
     <Compile Include="Assets\Scripts\Spring.cs" />
     <Compile Include="Assets\Scripts\springPressurePlate.cs" />
     <Compile Include="Assets\Scripts\TwoPlateController.cs" />

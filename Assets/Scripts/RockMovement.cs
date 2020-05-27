@@ -53,9 +53,9 @@ public class RockMovement : MonoBehaviour {
             MovePlatform();
             if (playerIsChild) {
                 if (inAir) {
-                    SceneManager.Instance.controller.Move(momentumVector);
+                    MySceneManager.Instance.controller.Move(momentumVector);
                 } else {
-                    SceneManager.Instance.controller.Move(moveVector);
+                    MySceneManager.Instance.controller.Move(moveVector);
                 }
             }
         } else {
