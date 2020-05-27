@@ -22,13 +22,10 @@ public class FourPressurePlate : MonoBehaviour
         }
         if (other.gameObject.tag == "Player")
         {         
-            pressure = pressure + 4;
+            pressure = pressure + 2;
             
         }
-        if(pressure == 4)
-        {
-        	door.transform.position = door.transform.position + new Vector3(0, -height, 0);
-        }
+      
 
 
     }
@@ -43,14 +40,10 @@ public class FourPressurePlate : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             
-            pressure = pressure - 4;
+            pressure = pressure - 2;
             
         }
-        if(pressure < 4)
-        {
-        	door.transform.position = door.transform.position + new Vector3(0, height, 0);
-
-        }
+      
 
 
     }

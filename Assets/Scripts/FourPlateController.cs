@@ -11,7 +11,7 @@ public class FourPlateController : MonoBehaviour
     public GameObject plate3_;
     public GameObject plate4_;
 
-
+    public int combinedPressure;
 
 
     void Start()
@@ -22,12 +22,14 @@ public class FourPlateController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((plate1_.GetComponent<FourPressurePlates>().pressure + plate2_.GetComponent<FourPressurePlates>().pressure) + plate3_.GetComponent<TwoPressurePlates>().pressure + plate4_.GetComponent<TwoPressurePlates>().pressure > 4)
+        combinedPressure = plate1_.GetComponent<FourPressurePlate>().pressure + plate2_.GetComponent<FourPressurePlate>().pressure +plate3_.GetComponent<FourPressurePlate>().pressure + plate4_.GetComponent<FourPressurePlate>().pressure;
+        if ((plate1_.GetComponent<FourPressurePlate>().pressure + plate2_.GetComponent<FourPressurePlate>().pressure) + plate3_.GetComponent<FourPressurePlate>().pressure + plate4_.GetComponent<FourPressurePlate>().pressure > 6)
         {
             transform.position = doorStart2 + new Vector3(0, -400, 0);
+            
         }
 
-        if ((plate1_.GetComponent<TwoPressurePlates>().pressure + plate2_.GetComponent<TwoPressurePlates>().pressure) + plate3_.GetComponent<TwoPressurePlates>().pressure + plate4_.GetComponent<TwoPressurePlates>().pressure < 4)
+        if ((plate1_.GetComponent<FourPressurePlate>().pressure + plate2_.GetComponent<FourPressurePlate>().pressure) + plate3_.GetComponent<FourPressurePlate>().pressure + plate4_.GetComponent<FourPressurePlate>().pressure < 7)
         
         {
             transform.position = doorStart2;
