@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class MainMenu : MonoBehaviour
 {
@@ -20,5 +21,13 @@ public class MainMenu : MonoBehaviour
     public void theCaves()
     {
     	SceneManager.LoadScene(2);
+    }
+    public void LevelSelect()
+    {
+    	SceneManager.LoadScene(4);
+    }
+    public void back()
+    {
+    	SceneManager.LoadScene(3);
     }
 }
