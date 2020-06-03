@@ -8,7 +8,7 @@ public class CameraController : MonoBehaviour
 {
 
     public GameObject player;
-
+    public GameObject cameraLookAt;
     private Vector3 offset;
 
     public float rotateSpeed;
@@ -21,7 +21,7 @@ public class CameraController : MonoBehaviour
     private Vector3 rightColisionDirection;
     private Vector3 leftColisionDirection;
     private Vector3 tempPosition;
-    private float rayLength;
+    public float rayLength;
     public double timeCameraIsColliding = 0.0d;
     public bool leftHit;
     public bool centerHit;
@@ -30,14 +30,28 @@ public class CameraController : MonoBehaviour
     RaycastHit hit1;
     RaycastHit hit2;
 
+    private Vector3 colisionPoint;
+    private float t;
+    private Vector3 hitPoint;
+    private float r;
 
     void Start()
     {
         offset = player.transform.position - transform.position;
 
-        colisionDirection = transform.position - player.transform.position;
+
+        //ug math hard
+        t = 1.2f;
+        colisionPoint = new Vector3((1 - t) * cameraLookAt.transform.position.x + t * transform.position.x,
+            (1 - t) * cameraLookAt.transform.position.y + t * transform.position.y, (1 - t) * cameraLookAt.transform.position.z + t * transform.position.z);
+        
+            
+        colisionDirection = colisionPoint - cameraLookAt.transform.position;
 
         rayLength = colisionDirection.magnitude;
+
+
+
         //player = SceneManager.Instance.player;
 
         //place pivot on top of player
@@ -78,42 +92,49 @@ public class CameraController : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(desiredXAngle, desiredYAgngle, 0);
         transform.position = player.transform.position - (rotation * offset);
 
-        left1 = (player.transform.position - (player.transform.right * .69f)) + (player.transform.up *.8f);
-        right1 = (player.transform.position - (-player.transform.right * .69f)) + (player.transform.up *.8f);
-        colisionDirection = (transform.position - player.transform.position); //* 1.5f;
-        leftColisionDirection = transform.position - left1;
-        rightColisionDirection = transform.position - right1;
+
+       
 
 
-        //prevent camera clipping through floor
-        if (transform.position.y < (player.transform.position.y + .2f)) {
-            transform.position = new Vector3(transform.position.x, player.transform.position.y + .2f, transform.position.z);
-        } else { //camera wall clip logic
+        left1 = (cameraLookAt.transform.position - (cameraLookAt.transform.right * .69f)) + (cameraLookAt.transform.up *-1.1f);
+        right1 = (cameraLookAt.transform.position - (-cameraLookAt.transform.right * .69f)) + (cameraLookAt.transform.up *-1.1f);
 
-            centerHit = Physics.Raycast(player.transform.position, colisionDirection, out hit, rayLength * 1.0f);
-            leftHit = Physics.Raycast(left1, leftColisionDirection,out hit1, rayLength * 1.0f);
-            rightHit = Physics.Raycast(right1, rightColisionDirection,out hit2, rayLength * 1.0f);
-            if (centerHit) {
-                Debug.DrawRay(player.transform.position, colisionDirection.normalized *hit.distance , Color.yellow);
-            }
-            if (leftHit) {
-                Debug.DrawRay(left1, leftColisionDirection.normalized *hit1.distance , Color.yellow);
-            }
-            if (rightHit) {
-                Debug.DrawRay(right1, rightColisionDirection.normalized *hit2.distance , Color.yellow);
-            }
+        colisionPoint = new Vector3((1 - t) * cameraLookAt.transform.position.x + t * transform.position.x,
+           (1 - t) * cameraLookAt.transform.position.y + t * transform.position.y, (1 - t) * cameraLookAt.transform.position.z + t * transform.position.z);
 
+        colisionDirection = colisionPoint - cameraLookAt.transform.position;
+        leftColisionDirection = colisionPoint - left1;
+        rightColisionDirection = colisionPoint - right1;
 
-            if (centerHit && leftHit && rightHit) {
-                timeCameraIsColliding += Time.deltaTime;
-               
-                transform.position = hit.point; //+ ((player.transform.position - hit.point) * 0.15f);
-               
-            } else {
-                transform.position = player.transform.position - (rotation * offset);
-                timeCameraIsColliding = 0.0d;
-            }
+        
+        centerHit = Physics.Raycast(cameraLookAt.transform.position, colisionDirection, out hit, rayLength);
+        leftHit = Physics.Raycast(left1, leftColisionDirection,out hit1, rayLength);
+        rightHit = Physics.Raycast(right1, rightColisionDirection,out hit2, rayLength);
+        if (centerHit) {
+            Debug.DrawRay(cameraLookAt.transform.position, colisionDirection.normalized *hit.distance , Color.yellow);
         }
-        transform.LookAt(player.transform);
+        if (leftHit) {
+            Debug.DrawRay(left1, leftColisionDirection.normalized *hit1.distance , Color.yellow);
+        }
+        if (rightHit) {
+            Debug.DrawRay(right1, rightColisionDirection.normalized *hit2.distance , Color.yellow);
+        }
+
+
+        if (centerHit && leftHit && rightHit) {
+            timeCameraIsColliding += Time.deltaTime;
+
+            r = 1.0f / 1.2f;
+            hitPoint = new Vector3((1 - r) * cameraLookAt.transform.position.x + r * hit.point.x,
+        (1 - r) * cameraLookAt.transform.position.y + r * hit.point.y, (1 - r) * cameraLookAt.transform.position.z + r * hit.point.z);
+
+            transform.position = hitPoint; 
+               
+        } else {
+            transform.position = player.transform.position - (rotation * offset);
+            timeCameraIsColliding = 0.0d;
+        }
+        
+        transform.LookAt(cameraLookAt.transform);
     }
 }

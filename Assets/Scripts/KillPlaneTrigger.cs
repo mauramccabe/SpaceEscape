@@ -6,7 +6,11 @@ public class KillPlaneTrigger : MonoBehaviour {
 
     public Vector3 respawnPoint;
     public bool playerIsDead = false;
-    
+
+
+    public delegate void DeathHandler();
+    public static event DeathHandler onDeath;
+
 
     void OnTriggerEnter (Collider other) {
         
@@ -16,6 +20,8 @@ public class KillPlaneTrigger : MonoBehaviour {
         }
 
         if(other.gameObject.tag == "Box") {
+            print("box respawned");
+            other.GetComponent<PickUpObject>().Drop();
             other.GetComponent<Rigidbody>().velocity = Vector3.zero;
             other.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
 
@@ -36,5 +42,8 @@ public class KillPlaneTrigger : MonoBehaviour {
         MySceneManager.Instance.player.transform.position = respawnPoint;
         playerIsDead = false;
         Physics.SyncTransforms();
+        if (onDeath != null) {
+            onDeath();
+        }
     }
 }

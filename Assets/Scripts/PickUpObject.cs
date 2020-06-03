@@ -6,8 +6,7 @@ using System.Collections;
 public class PickUpObject : MonoBehaviour {
 
 	private Transform player;
-	//public Transform head;
-	private float distanceFromPlayer;
+	public float distanceFromPlayer;
 
 
 
@@ -33,6 +32,7 @@ public class PickUpObject : MonoBehaviour {
 		startPosition = transform.position;
 		startRotation = transform.rotation;
 		player = MySceneManager.Instance.player.transform;
+
 
 		rb = GetComponent<Rigidbody>();
 		killPlane = MySceneManager.Instance.killPlane;
@@ -65,6 +65,8 @@ public class PickUpObject : MonoBehaviour {
 	}	
 	
 	void Pickup(bool triggerPickup = true) {
+
+		
 		rb.velocity = Vector3.zero;
 		rb.angularVelocity = Vector3.zero;
 		rb.isKinematic = false;
@@ -86,7 +88,7 @@ public class PickUpObject : MonoBehaviour {
         }
 	}
 
-	void Drop(bool triggerDrop = true) {
+	public void Drop(bool triggerDrop = true) {
 		rb.velocity = Vector3.zero;
 
 		rb.isKinematic = false;
@@ -95,13 +97,14 @@ public class PickUpObject : MonoBehaviour {
 
 		beingCarried = false;
 		rb.constraints = 0;
-		 
+		rb.transform.localScale = new Vector3(2f, 2f, 2f);
 
 		if (triggerDrop && (onBoxDrop != null)) { 
 			onBoxDrop(gameObject);
 		} 
 	}
 
+	
 	void Anchor() {
 		rb.isKinematic = true;
 		rb.useGravity = false;
@@ -109,13 +112,59 @@ public class PickUpObject : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
+		
+		
+		distanceFromPlayer = Vector3.Distance(player.position, transform.position);
+
+
+		if (killPlane.playerIsDead) {
+			if (rb && beingCarried) {
+				Drop(false);
+			}
+		}
+
 		if (beingCarried) {
-			//transform.localPosition = Vector3.SmoothDamp(transform.localPosition, desiredPosition, ref velocity, 1.0f);
-			//transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.Euler(Vector3.zero), Time.time * 0.1f);
+			
+			if (Input.GetKeyDown("e")) {
+				Drop();
+			}
+
+			if (distanceFromPlayer > 2.1f) {
+				Drop();
+			}
+
+			if (Input.GetKeyDown("e") && hasAnchor) {
+				Anchor();
+			}
+
+		} else if (Input.GetKeyDown("e") && hasPlayer) {
+			Pickup();
+		}
+
+		if (beingCarried) {
+			if(transform.localPosition.x > .077) {
+				transform.localPosition = new Vector3(.077f, transform.localPosition.y, transform.localPosition.z);
+				rb.velocity = Vector3.zero;
+			}
+			if (transform.localPosition.x < -.077) {
+				transform.localPosition = new Vector3(-.077f, transform.localPosition.y, transform.localPosition.z);
+				rb.velocity = Vector3.zero;
+			}
+			if (transform.localPosition.z > .077) {
+				transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, .077f);
+				rb.velocity = Vector3.zero;
+			}
+			if (transform.localPosition.z < -.077) {
+				transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, -.077f);
+				rb.velocity = Vector3.zero;
+			}
+
+			transform.localPosition = Vector3.SmoothDamp(transform.localPosition, desiredPosition, ref velocity, 1.0f);
+			transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.Euler(Vector3.zero), Time.time * 0.1f);
 		}	
 	}
 
-
+	/*
 	void Update() {
 
 		distanceFromPlayer = Vector3.Distance(player.position, transform.position);
@@ -147,5 +196,5 @@ public class PickUpObject : MonoBehaviour {
 				Pickup();
 		}
 		
-	}
+	}*/
 }

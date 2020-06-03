@@ -12,16 +12,16 @@ public class PlayerMovement : MonoBehaviour {
     public float gravityScale;
     public Vector3 moveDirection;
 
-    public GameObject spring;
+    
     Animator am;
 
-    private float lastGrounded = 0;
+    public float lastGrounded = 0;
 
-    private bool springJump;
+    public bool springJump;
 
     public bool inAir = false;
     private bool canDash = true;
-    private bool jumpflag = false;
+    public bool jumpflag = false;
     private float dashTime = 0;
     public float dashSpeed;
 
@@ -32,15 +32,16 @@ public class PlayerMovement : MonoBehaviour {
 
     private int dashType;
 
-    private bool tryJump = false;
+    public bool tryJump = false;
     private bool tryDash = false;
 
     int sc;
     bool changeScene = false;
 
-
-  
-   
+    public Vector3 gravity;
+    public float springCD = 0;
+    float test = 0f;
+    public float yStore;
    void Start() {
         controller = GetComponent<CharacterController>();
         am = gameObject.GetComponent<Animator>();
@@ -104,7 +105,7 @@ public class PlayerMovement : MonoBehaviour {
         }
 
 
-        float yStore = moveDirection.y;
+         yStore = moveDirection.y;
         //For animations
         moveDirection = (transform.forward * Input.GetAxis("Vertical")) + (transform.right * Input.GetAxis("Horizontal"));
 
@@ -115,13 +116,15 @@ public class PlayerMovement : MonoBehaviour {
 
 
         
-
+        
         if (lastGrounded > 0) {
             if (tryJump)
             {
                 if (jumpflag)
                 {
+                    
                     moveDirection.y = jumpForce * 1.5f;
+                    
                 }
                 else
                 {
@@ -194,13 +197,25 @@ public class PlayerMovement : MonoBehaviour {
             dashTime -= Time.deltaTime;
         }
 
+        springCD -= Time.deltaTime;
 
-        if (springJump) {
+        if (springJump && (springCD <= 0)) {
+
             moveDirection.y = jumpForce * 2.3f;
+            print("start");
             springJump = false;
+            
+            test = 1.0f;
+            springCD = 1.0f;
         }
-
+        springJump = false;
+        
         moveDirection.y = moveDirection.y + (Physics.gravity.y * gravityScale * Time.deltaTime);
+        
+        if(test >0)
+            print(moveDirection.y);
+        test = 0;
+        gravity = moveDirection * Time.deltaTime;
         controller.Move(moveDirection * Time.deltaTime);
     }
 
@@ -213,6 +228,7 @@ public class PlayerMovement : MonoBehaviour {
         {
             other.gameObject.SetActive(true);
             lastGrounded = 0.2f;
+            
             jumpflag = true;
         }
         else if (other.gameObject.tag == "DashOrb")
