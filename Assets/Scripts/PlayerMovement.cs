@@ -67,12 +67,13 @@ public class PlayerMovement : MonoBehaviour {
                                        || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)
                                        || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow)) {
             am.SetBool("IsWalking", true);
-        } else if (!Input.anyKey) {
+        } else {
             am.SetBool("IsWalking", false);
         }
 
         if (controller.isGrounded) {
             inAir = false;
+            am.SetBool("IsJumping", false);
             canDash = true;
             if ((lastGrounded != 0.2f) && (onLand != null))
                 onLand();
@@ -89,6 +90,7 @@ public class PlayerMovement : MonoBehaviour {
 
         if (Input.GetButtonDown("Jump")) {
             tryJump = true;
+            am.SetBool("IsJumping", true);
         }
         if (Input.GetKeyDown("left shift")) {
             tryDash = true;

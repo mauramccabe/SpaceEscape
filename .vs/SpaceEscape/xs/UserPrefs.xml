@@ -1,19 +1,25 @@
 ﻿<Properties StartupConfiguration="{8F77EE67-8C11-459E-BF40-8DB46270F113}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/SceneTrigger.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/RobotSphere/Assets/Scripts/RobotFreeAnim.cs">
     <Files>
       <File FileName="Assets/Scripts/Rotate.cs" Line="12" Column="6" />
-      <File FileName="Assets/Scripts/PlayerMovement.cs" Line="4" Column="1" />
+      <File FileName="Assets/Scripts/PlayerMovement.cs" />
       <File FileName="Assets/Scripts/SceneTrigger.cs" Line="20" Column="6" />
-      <File FileName="Assets/Scripts/Tutorial.cs" Line="30" Column="29" />
+      <File FileName="Assets/Scripts/Tutorial.cs" />
+      <File FileName="Assets/RobotSphere/Assets/Scripts/RobotFreeAnim.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="SpaceEscape" expanded="True">
             <Node name="Assets" expanded="True">
-              <Node name="Scripts" expanded="True">
-                <Node name="Tutorial.cs" selected="True" />
+              <Node name="RobotSphere" expanded="True">
+                <Node name="Assets" expanded="True">
+                  <Node name="Scripts" expanded="True">
+                    <Node name="RobotFreeAnim.cs" selected="True" />
+                  </Node>
+                </Node>
               </Node>
+              <Node name="Scripts" expanded="True" />
             </Node>
           </Node>
         </State>
@@ -22,7 +28,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="61ad214c-02fa-4d61-9061-b8585a4518a1" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="1c9e67f3-31eb-48dd-8c97-220b7d72948f" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
