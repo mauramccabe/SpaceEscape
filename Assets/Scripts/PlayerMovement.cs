@@ -76,6 +76,7 @@ public class PlayerMovement : MonoBehaviour {
 
         if (controller.isGrounded) {
             inAir = false;
+            am.SetBool("IsJumping", false);
             canDash = true;
             if ((lastGrounded != 0.2f) && (onLand != null))
                 onLand();
@@ -121,13 +122,14 @@ public class PlayerMovement : MonoBehaviour {
 
         if (lastGrounded > 0) {
             if (tryJump) {
-                if (jumpflag) {
-
-                    moveDirection.y = jumpForce * 1.4f;
+                if (jumpflag)
+                {
+                    moveDirection.y = jumpForce; //can change this to make the orb jump higher
 
                 } else {
                     moveDirection.y = jumpForce;
                 }
+                am.SetBool("IsJumping", true);
                 jumpflag = false;
                 lastGrounded = 0f;
 
