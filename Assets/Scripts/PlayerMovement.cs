@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour {
     public float gravityScale;
     public Vector3 moveDirection;
 
-    
+
     Animator am;
 
     public float lastGrounded = 0;
@@ -38,17 +38,20 @@ public class PlayerMovement : MonoBehaviour {
     int sc;
     bool changeScene = false;
 
-    public Vector3 gravity;
+
     public float springCD = 0;
-    float test = 0f;
+
     public float yStore;
-   void Start() {
+    void Start() {
         controller = GetComponent<CharacterController>();
         am = gameObject.GetComponent<Animator>();
     }
 
-    void Update()
-    {
+    void OnAnimatorMove() {
+    }
+
+
+    void Update() {
 
         if (Input.GetKey(KeyCode.Alpha1)) {
             changeScene = true;
@@ -67,21 +70,19 @@ public class PlayerMovement : MonoBehaviour {
                                        || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)
                                        || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow)) {
             am.SetBool("IsWalking", true);
-        } else {
+        } else if (!Input.anyKey) {
             am.SetBool("IsWalking", false);
         }
 
         if (controller.isGrounded) {
             inAir = false;
-            am.SetBool("IsJumping", false);
             canDash = true;
             if ((lastGrounded != 0.2f) && (onLand != null))
                 onLand();
             moveDirection.y = 0f;
             lastGrounded = 0.2f;
 
-        } else if (lastGrounded > 0 )
-        {
+        } else if (lastGrounded > 0) {
             if (!jumpflag) //this is for the jump orb 
             {
                 lastGrounded = lastGrounded - Time.deltaTime;
@@ -90,7 +91,6 @@ public class PlayerMovement : MonoBehaviour {
 
         if (Input.GetButtonDown("Jump")) {
             tryJump = true;
-            am.SetBool("IsJumping", true);
         }
         if (Input.GetKeyDown("left shift")) {
             tryDash = true;
@@ -107,7 +107,7 @@ public class PlayerMovement : MonoBehaviour {
         }
 
 
-         yStore = moveDirection.y;
+        yStore = moveDirection.y;
         //For animations
         moveDirection = (transform.forward * Input.GetAxis("Vertical")) + (transform.right * Input.GetAxis("Horizontal"));
 
@@ -117,19 +117,15 @@ public class PlayerMovement : MonoBehaviour {
 
 
 
-        
-        
+
+
         if (lastGrounded > 0) {
-            if (tryJump)
-            {
-                if (jumpflag)
-                {
-                    
-                    moveDirection.y = jumpForce * 1.5f;
-                    
-                }
-                else
-                {
+            if (tryJump) {
+                if (jumpflag) {
+
+                    moveDirection.y = jumpForce * 1.4f;
+
+                } else {
                     moveDirection.y = jumpForce;
                 }
                 jumpflag = false;
@@ -203,21 +199,14 @@ public class PlayerMovement : MonoBehaviour {
 
         if (springJump && (springCD <= 0)) {
 
-            moveDirection.y = jumpForce * 2.3f;
-            print("start");
+            moveDirection.y = jumpForce * 2.0f;
             springJump = false;
-            
-            test = 1.0f;
             springCD = 1.0f;
         }
         springJump = false;
-        
+
         moveDirection.y = moveDirection.y + (Physics.gravity.y * gravityScale * Time.deltaTime);
-        
-        if(test >0)
-            print(moveDirection.y);
-        test = 0;
-        gravity = moveDirection * Time.deltaTime;
+
         controller.Move(moveDirection * Time.deltaTime);
     }
 
@@ -225,16 +214,12 @@ public class PlayerMovement : MonoBehaviour {
 
         if (other.gameObject.tag == "Spring") {
             springJump = true;
-        }
-        else if (other.gameObject.tag == "JumpOrb")
-        {
+        } else if (other.gameObject.tag == "JumpOrb") {
             other.gameObject.SetActive(true);
             lastGrounded = 0.2f;
-            
+
             jumpflag = true;
-        }
-        else if (other.gameObject.tag == "DashOrb")
-        {
+        } else if (other.gameObject.tag == "DashOrb") {
             other.gameObject.SetActive(true);
             canDash = true;
         }
