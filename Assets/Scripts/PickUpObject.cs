@@ -14,6 +14,7 @@ public class PickUpObject : MonoBehaviour {
 	public bool beingCarried = false;
 	Rigidbody rb;
 	public bool hasAnchor = false;
+	Animator amin;
 
 
 	private KillPlaneTrigger killPlane;
@@ -35,6 +36,7 @@ public class PickUpObject : MonoBehaviour {
 
 
 		rb = GetComponent<Rigidbody>();
+		amin = player.GetComponent<Animator>();
 		killPlane = MySceneManager.Instance.killPlane;
 	}
 
@@ -82,8 +84,8 @@ public class PickUpObject : MonoBehaviour {
 		rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationX |
 			RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 		beingCarried = true;
-
-		if(triggerPickup && (onBoxPickup != null)) {
+       
+        if (triggerPickup && (onBoxPickup != null)) {
 			onBoxPickup(gameObject);
         }
 	}
@@ -96,12 +98,12 @@ public class PickUpObject : MonoBehaviour {
 		transform.parent = null;
 
 		beingCarried = false;
-		rb.constraints = 0;
+        rb.constraints = 0;
 		rb.transform.localScale = new Vector3(2f, 2f, 2f);
 
 		if (triggerDrop && (onBoxDrop != null)) { 
 			onBoxDrop(gameObject);
-		} 
+		}
 	}
 
 	
@@ -120,25 +122,34 @@ public class PickUpObject : MonoBehaviour {
 		if (killPlane.playerIsDead) {
 			if (rb && beingCarried) {
 				Drop(false);
+				amin.SetBool("HasBox", false);
 			}
 		}
 
 		if (beingCarried) {
 			
-			if (Input.GetKeyDown("e")) {
+			if (Input.GetKeyDown("e"))
+			{
 				Drop();
+				amin.SetBool("HasBox", false);
 			}
 
-			if (distanceFromPlayer > 2.1f) {
+			if (distanceFromPlayer > 2.1f)
+			{
 				Drop();
+				amin.SetBool("HasBox", false);
 			}
 
-			if (Input.GetKeyDown("e") && hasAnchor) {
+			if (Input.GetKeyDown("e") && hasAnchor)
+			{
 				Anchor();
+				amin.SetBool("HasBox", false);
 			}
 
-		} else if (Input.GetKeyDown("e") && hasPlayer) {
+		} else if (Input.GetKeyDown("e") && hasPlayer)
+		{
 			Pickup();
+			amin.SetBool("HasBox", true);
 		}
 
 		if (beingCarried) {

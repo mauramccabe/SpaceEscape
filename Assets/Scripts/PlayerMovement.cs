@@ -70,8 +70,15 @@ public class PlayerMovement : MonoBehaviour {
                                        || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)
                                        || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow)) {
             am.SetBool("IsWalking", true);
-        } else if (!Input.anyKey) {
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)
+                                      || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
+            {
+                am.SetBool("GoSideways", true);
+            }
+        }
+        else if (!Input.anyKey) {
             am.SetBool("IsWalking", false);
+            am.SetBool("GoSideways", false);
         }
 
         if (controller.isGrounded) {

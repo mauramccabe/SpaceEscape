@@ -1,11 +1,12 @@
 ﻿<Properties StartupConfiguration="{8F77EE67-8C11-459E-BF40-8DB46270F113}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerMovement.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PickUpObject.cs">
     <Files>
       <File FileName="Assets/Scripts/Rotate.cs" Line="14" Column="1" />
-      <File FileName="Assets/Scripts/PlayerMovement.cs" Line="127" Column="95" />
+      <File FileName="Assets/Scripts/PlayerMovement.cs" Line="46" Column="58" />
       <File FileName="Assets/Scripts/SceneTrigger.cs" />
       <File FileName="Assets/Scripts/Tutorial.cs" />
-      <File FileName="Assets/RobotSphere/Assets/Scripts/RobotFreeAnim.cs" />
+      <File FileName="Assets/RobotSphere/Assets/Scripts/RobotFreeAnim.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PickUpObject.cs" Line="39" Column="20" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -17,7 +18,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="c4f9dda6-e843-47af-9a82-bb0d1fc3bf5d" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="59883b2d-87f4-4fca-b652-14dd4391f630" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
