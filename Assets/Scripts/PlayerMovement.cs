@@ -227,6 +227,7 @@ public class PlayerMovement : MonoBehaviour {
 
         if (other.gameObject.tag == "Spring") {
             springJump = true;
+            soundManager.PlaySound("spring");
         } else if (other.gameObject.tag == "JumpOrb") {
             other.gameObject.SetActive(true);
             lastGrounded = 0.2f;

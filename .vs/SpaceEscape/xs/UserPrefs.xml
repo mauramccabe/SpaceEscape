@@ -1,14 +1,15 @@
 ﻿<Properties StartupConfiguration="{8F77EE67-8C11-459E-BF40-8DB46270F113}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/soundManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Spring.cs">
     <Files>
-      <File FileName="Assets/Scripts/PlayerMovement.cs" Line="238" Column="1" />
+      <File FileName="Assets/Scripts/PlayerMovement.cs" Line="132" Column="14" />
       <File FileName="Assets/Scripts/SceneTrigger.cs" />
       <File FileName="Assets/Scripts/Tutorial.cs" Line="1" Column="1" />
       <File FileName="Assets/RobotSphere/Assets/Scripts/RobotFreeAnim.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/PickUpObject.cs" Line="38" Column="34" />
+      <File FileName="Assets/Scripts/PickUpObject.cs" Line="71" Column="30" />
       <File FileName="Assets/Scripts/PressurePlate.cs" Line="17" Column="37" />
-      <File FileName="Assets/Scripts/KillPlaneTrigger.cs" Line="50" Column="1" />
-      <File FileName="Assets/Scripts/soundManager.cs" Line="37" Column="13" />
+      <File FileName="Assets/Scripts/KillPlaneTrigger.cs" Line="19" Column="44" />
+      <File FileName="Assets/Scripts/soundManager.cs" Line="25" Column="6" />
+      <File FileName="Assets/Scripts/Spring.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">

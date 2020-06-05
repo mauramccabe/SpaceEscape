@@ -68,7 +68,8 @@ public class PickUpObject : MonoBehaviour {
 	
 	void Pickup(bool triggerPickup = true) {
 
-		
+		soundManager.PlaySound("box");
+
 		rb.velocity = Vector3.zero;
 		rb.angularVelocity = Vector3.zero;
 		rb.isKinematic = false;

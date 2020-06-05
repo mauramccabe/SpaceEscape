@@ -5,7 +5,7 @@ using UnityEngine;
 public class soundManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    public static AudioClip jumpSound1, jumpSound2, jumpSound3, PressurePlate, door, dash, respawn;
+    public static AudioClip jumpSound1, jumpSound2, jumpSound3, PressurePlate, door, dash, respawn, spring, box;
     static AudioSource audioSrc;
     static int randomPick;
     void Start()
@@ -17,6 +17,8 @@ public class soundManager : MonoBehaviour
     	door = Resources.Load<AudioClip>("Door 4 Open");
         dash = Resources.Load<AudioClip>("Shield Device 3 Stop");
         respawn = Resources.Load<AudioClip>("Device 4 Stop");
+        spring = Resources.Load<AudioClip>("Door 6 Open");
+        box = Resources.Load<AudioClip>("Click 4");
 
         audioSrc = GetComponent<AudioSource> ();
         
@@ -60,6 +62,12 @@ public class soundManager : MonoBehaviour
 
             case "respawn":
             audioSrc.PlayOneShot(respawn);
+            break;
+            case "spring":
+            audioSrc.PlayOneShot(spring);
+            break;
+            case "box":
+            audioSrc.PlayOneShot(box);
             break;
         }
     }
