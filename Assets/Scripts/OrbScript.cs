@@ -10,7 +10,9 @@ public class OrbScript : MonoBehaviour {
 
     // Update is called once per frame
     void Respawn() {
-        this.gameObject.SetActive(true);
+        if(this != null) {
+            this.gameObject.SetActive(true);
+        }
     }
 
 }
