@@ -11,13 +11,13 @@ public class NextLevel : MonoBehaviour
     void OnTriggerEnter(Collider player)
     {
 
-    	if(SceneManager.GetActiveScene().buildIndex != 2)
+    	if(SceneManager.GetActiveScene().buildIndex != 3)
     	{
 
     	
         	SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
-        if(SceneManager.GetActiveScene().buildIndex == 2)
+        if(SceneManager.GetActiveScene().buildIndex == 3)
         {
         	SceneManager.LoadScene(5);
         }

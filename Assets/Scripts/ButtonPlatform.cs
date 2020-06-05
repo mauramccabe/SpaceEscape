@@ -7,6 +7,7 @@ public class ButtonPlatform : MonoBehaviour
     
     public GameObject platform;
     public RockMovement platformScript;
+    public bool hasPlayed;
 
     void Awake() {
         platformScript = platform.GetComponent<RockMovement>();
@@ -16,10 +17,15 @@ public class ButtonPlatform : MonoBehaviour
 
     void OnTriggerStay(Collider col) {
         platformScript.automatic = true;
-        soundManager.PlaySound("plate");
+        if (!hasPlayed) {
+            soundManager.PlaySound("plate");
+            hasPlayed = true;
+        }
+        
     }
     void OnTriggerExit(Collider col) {
         platformScript.automatic = false;
+        hasPlayed = false;
     }
 
 }

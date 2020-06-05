@@ -12,7 +12,7 @@ public class FourPlateController : MonoBehaviour
     public GameObject plate4_;
 
     public int combinedPressure;
-
+    bool hasPlayed = false;
 
     void Start()
     {
@@ -26,7 +26,11 @@ public class FourPlateController : MonoBehaviour
         if ((plate1_.GetComponent<FourPressurePlate>().pressure + plate2_.GetComponent<FourPressurePlate>().pressure) + plate3_.GetComponent<FourPressurePlate>().pressure + plate4_.GetComponent<FourPressurePlate>().pressure > 6)
         {
             transform.position = doorStart2 + new Vector3(0, -400, 0);
-            soundManager.PlaySound("door");
+            if (!hasPlayed) {
+                soundManager.PlaySound("door");
+                hasPlayed = true;
+            }
+            
             
         }
 
@@ -34,6 +38,7 @@ public class FourPlateController : MonoBehaviour
         
         {
             transform.position = doorStart2;
+            hasPlayed = false;
         }
     }
 }
