@@ -19,6 +19,7 @@ public class RockPressurePlate : MonoBehaviour
         	rock.transform.position = rock.transform.position + new Vector3(0, 34, 0);
         	rock2.transform.position = rock2.transform.position + new Vector3(0, 34, 0);
         	rock3.transform.position = rock3.transform.position + new Vector3(0, 34, 0);
+            soundManager.PlaySound("door");
     	}
     }
     void OnTriggerExit(Collider col)
