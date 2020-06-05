@@ -20,6 +20,7 @@ public class TwoPlateController : MonoBehaviour
         if ((plate1.GetComponent<TwoPressurePlates>().pressure + plate2.GetComponent<TwoPressurePlates>().pressure) > 3)
         {
             transform.position = doorStart + new Vector3(0, -5, 0);
+            soundManager.PlaySound("door");
         }
 
         if ((plate1.GetComponent<TwoPressurePlates>().pressure + plate2.GetComponent<TwoPressurePlates>().pressure) < 4)
