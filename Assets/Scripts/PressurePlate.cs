@@ -12,6 +12,7 @@ public class PressurePlate : MonoBehaviour
     void OnTriggerEnter(Collider col)
     {
         door.transform.position = door.transform.position + up;
+        soundManager.PlaySound("plate");
     }
     void OnTriggerExit(Collider col)
     {
