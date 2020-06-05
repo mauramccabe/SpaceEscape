@@ -76,6 +76,7 @@ public class PickUpObject : MonoBehaviour {
 
 		rb.useGravity = false;
 		transform.parent = player;
+		soundManager.PlaySound("pickup");
 		//transform.position = head.position;
 
 		//why does this work this way i am so confused.....
