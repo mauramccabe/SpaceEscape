@@ -16,6 +16,7 @@ public class ButtonPlatform : MonoBehaviour
 
     void OnTriggerStay(Collider col) {
         platformScript.automatic = true;
+        soundManager.PlaySound("plate");
     }
     void OnTriggerExit(Collider col) {
         platformScript.automatic = false;
