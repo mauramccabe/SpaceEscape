@@ -91,6 +91,7 @@
     <Compile Include="Assets\Scripts\RockPressurePlate.cs" />
     <Compile Include="Assets\Scripts\Rotate.cs" />
     <Compile Include="Assets\Scripts\SceneTrigger.cs" />
+    <Compile Include="Assets\Scripts\soundManager.cs" />
     <Compile Include="Assets\Scripts\Spring.cs" />
     <Compile Include="Assets\Scripts\springPressurePlate.cs" />
     <Compile Include="Assets\Scripts\Tutorial.cs" />

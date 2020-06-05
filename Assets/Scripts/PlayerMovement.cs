@@ -98,7 +98,6 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         if (Input.GetButtonDown("Jump")) {
-            soundManager.PlaySound ("jump");
             tryJump = true;
         }
         if (Input.GetKeyDown("left shift")) {
@@ -129,7 +128,9 @@ public class PlayerMovement : MonoBehaviour {
 
 
         if (lastGrounded > 0) {
-            if (tryJump) {
+            if (tryJump)
+            {
+                soundManager.PlaySound("jump");
                 if (jumpflag)
                 {
                     moveDirection.y = jumpForce; //can change this to make the orb jump higher
@@ -162,7 +163,9 @@ public class PlayerMovement : MonoBehaviour {
         }
         tryJump = false;
         if (inAir && canDash) {
-            if (tryDash) {
+            if (tryDash)
+            {
+                soundManager.PlaySound("dash");
                 canDash = false;
                 dashTime = .4f;
                 dashSpeed = 300;

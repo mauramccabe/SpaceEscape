@@ -14,7 +14,9 @@ public class KillPlaneTrigger : MonoBehaviour {
 
     void OnTriggerEnter (Collider other) {
         
-        if (other.gameObject.tag == "Player") {
+        if (other.gameObject.tag == "Player")
+        {
+            soundManager.PlaySound("respawn");
             playerIsDead = true;
 
         }
