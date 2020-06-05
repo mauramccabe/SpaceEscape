@@ -99,14 +99,6 @@ public class PlayerMovement : MonoBehaviour {
 
         if (Input.GetButtonDown("Jump")) {
             tryJump = true;
-            for(int i = 0; i < 3; i++)
-            {
-                string sound = "jump" + i;
-                print(sound);
-                soundManager.PlaySound(sound);
-            }
-
-
         }
         if (Input.GetKeyDown("left shift")) {
             tryDash = true;

@@ -7,7 +7,7 @@ public class soundManager : MonoBehaviour
     // Start is called before the first frame update
     public static AudioClip jumpSound1, jumpSound2, jumpSound3, PressurePlate, door, dash, respawn;
     static AudioSource audioSrc;
-
+    static int randomPick;
     void Start()
     {
     	jumpSound1 = Resources.Load<AudioClip>("Synth Whoosh 3_3");
@@ -31,18 +31,21 @@ public class soundManager : MonoBehaviour
     {
     	switch(clip)
     	{
-    		case "jump0":
-			audioSrc.PlayOneShot(jumpSound1);
-    		break;
-    		
-    		case "jump1":
-    		audioSrc.PlayOneShot(jumpSound2);
-    		break;
+    		case "jump":
 
-    		case "jump2":
-    		audioSrc.PlayOneShot(jumpSound3);
-    		break;
-    		
+                randomPick = Random.Range(0, 3);
+                if(randomPick == 0) {
+                    audioSrc.PlayOneShot(jumpSound1);
+                    break;
+                }else if(randomPick == 1) {
+                    audioSrc.PlayOneShot(jumpSound2);
+                    break;
+                } else {
+                    audioSrc.PlayOneShot(jumpSound3);
+                    break;
+                }
+
+
     		case "plate":
     		audioSrc.PlayOneShot (PressurePlate);
     		break;
