@@ -19,7 +19,7 @@ public class MainMenuButton : MonoBehaviour
      if(Input.GetKeyDown(KeyCode.M))
      {
 
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(0);
      }
 
     }
