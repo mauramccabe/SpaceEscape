@@ -52,14 +52,18 @@ public class CameraController : MonoBehaviour {
     RaycastHit hit5;
     RaycastHit hit6;
     public Vector3 locationStore;
-    public bool cameraIsColiding;
+    public bool cameraIsColidingLeft;
+    public bool cameraIsColidingRight;
+
+    public float storedDist;
+    Quaternion storedRotation;
 
     void Start() {
         offset = player.transform.position - transform.position;
 
 
         //ug math hard
-        t = 1.2f;
+        t = 2.3f;
         colisionPoint = new Vector3((1 - t) * cameraLookAt.transform.position.x + t * transform.position.x,
             (1 - t) * cameraLookAt.transform.position.y + t * transform.position.y, (1 - t) * cameraLookAt.transform.position.z + t * transform.position.z);
 
@@ -86,14 +90,23 @@ public class CameraController : MonoBehaviour {
 
         //get x position of mouse and rotate the player
         float horizontal = Input.GetAxis("Mouse X") * rotateSpeed;
-        player.transform.Rotate(0, horizontal, 0);
+        //increase to go left
+        if (cameraIsColidingLeft && (horizontal > 0)) {
+
+        } else if (cameraIsColidingRight && (horizontal < 0)) {
+
+        } else {
+            player.transform.Rotate(0, horizontal, 0);
+        }
+
+
 
 
         //get y position of mouse and rotate the pivot
         float vertical = Input.GetAxis("Mouse Y") * rotateSpeed;
         pivot.transform.Rotate(-vertical, 0, 0);
 
-        
+
         if (pivot.rotation.eulerAngles.x > 45f && pivot.rotation.eulerAngles.x < 180f) {
             pivot.rotation = Quaternion.Euler(45f, 0, 0);
         }
@@ -111,8 +124,8 @@ public class CameraController : MonoBehaviour {
 
 
 
-        left1 = (cameraLookAt.transform.position - (cameraLookAt.transform.right * .69f)) + (cameraLookAt.transform.up * -1.3f);
-        right1 = (cameraLookAt.transform.position - (-cameraLookAt.transform.right * .69f)) + (cameraLookAt.transform.up * -1.3f);
+        left1 = (cameraLookAt.transform.position - (cameraLookAt.transform.right * .60f)) + (cameraLookAt.transform.up * -1.3f);
+        right1 = (cameraLookAt.transform.position - (-cameraLookAt.transform.right * .60f)) + (cameraLookAt.transform.up * -1.3f);
 
         leftCheck = cameraLookAt.transform.position - left1;
         rightCheck = cameraLookAt.transform.position - right1;
@@ -155,7 +168,7 @@ public class CameraController : MonoBehaviour {
         if (centerHit && leftHit && rightHit) {
             timeCameraIsColliding += Time.deltaTime;
 
-            r = 1.0f / 1.2f;
+            r = 1.0f / 2.3f;
             hitPoint = new Vector3((1 - r) * cameraLookAt.transform.position.x + r * hit.point.x,
         (1 - r) * cameraLookAt.transform.position.y + r * hit.point.y, (1 - r) * cameraLookAt.transform.position.z + r * hit.point.z);
 
@@ -174,8 +187,8 @@ public class CameraController : MonoBehaviour {
             timeCameraIsColliding = 0.0d;
         }
 
-        cameraLeft1 = (transform.position - (transform.right * .8f) + (transform.forward * 1.3f));
-        cameraRight1 = (transform.position - (-transform.right * .8f) + (transform.forward * 1.3f));
+        cameraLeft1 = (transform.position - (transform.right * .7f) + (transform.forward * 1.3f));
+        cameraRight1 = (transform.position - (-transform.right * .7f) + (transform.forward * 1.3f));
         cameraLeftDirection = cameraLeft1 - transform.position;
         cameraRightDirection = cameraRight1 - transform.position;
         cameraCheckMag = cameraRightDirection.magnitude;
@@ -192,21 +205,23 @@ public class CameraController : MonoBehaviour {
         }
 
 
-
-        if (!cameraLeftHit && !cameraRightHit) {
-            cameraIsColiding = false;
+        /*
+        if (!cameraLeftHit) {
+            cameraIsColidingLeft = false;
+        }
+        if (!cameraRightHit) {
+            cameraIsColidingRight = false;
         }
 
-        if (cameraIsColiding) {
-            transform.position = locationStore;
+        if (cameraLeftHit && !cameraIsColidingLeft) {
+            cameraIsColidingLeft = true;
+            storedRotation = player.transform.rotation;
         }
-
-        if (cameraLeftHit || cameraRightHit && !cameraIsColiding) {
-            cameraIsColiding = true;
-            locationStore = transform.position;
+        if (cameraRightHit && !cameraIsColidingRight) {
+            cameraIsColidingRight = true;
+            storedRotation = player.transform.rotation;
         }
-
-        
+        */
 
         transform.LookAt(cameraLookAt.transform);
     }
