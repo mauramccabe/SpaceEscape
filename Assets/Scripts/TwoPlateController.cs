@@ -8,6 +8,7 @@ public class TwoPlateController : MonoBehaviour
     private Vector3 doorStart;
     public GameObject plate1;
     public GameObject plate2;
+    bool hasPlayed;
 
     void Start()
     {
@@ -20,12 +21,16 @@ public class TwoPlateController : MonoBehaviour
         if ((plate1.GetComponent<TwoPressurePlates>().pressure + plate2.GetComponent<TwoPressurePlates>().pressure) > 3)
         {
             transform.position = doorStart + new Vector3(0, -5, 0);
-            soundManager.PlaySound("door");
+            if (!hasPlayed) {
+                soundManager.PlaySound("door");
+                hasPlayed = true;
+            }
         }
 
         if ((plate1.GetComponent<TwoPressurePlates>().pressure + plate2.GetComponent<TwoPressurePlates>().pressure) < 4)
         {
             transform.position = doorStart;
+            hasPlayed = false;
         }
     }
 }

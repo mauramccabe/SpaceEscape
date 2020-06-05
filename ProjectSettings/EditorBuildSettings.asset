@@ -6,17 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: e65d123b790bb42e09e78d85bd3e3027
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
-    path: Assets/Scenes/mars.unity
-    guid: 499ef415091c54788ae6b81bd1ed9b75
   - enabled: 1
     path: Assets/Scenes/ThirdScene.unity
     guid: d483c4efa5b9243f79385013dce086d4
   - enabled: 1
-    path: Assets/Scenes/Menu.unity
-    guid: e65d123b790bb42e09e78d85bd3e3027
+    path: Assets/Scenes/mars.unity
+    guid: 499ef415091c54788ae6b81bd1ed9b75
   - enabled: 1
     path: Assets/Scenes/levelselect.unity
     guid: 8b863554aa6514ce3bfc7820f528ee45

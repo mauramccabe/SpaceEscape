@@ -10,13 +10,8 @@ public class FirstPressurePlate : MonoBehaviour
     bool hasPlayed = false;
     void OnTriggerEnter(Collider col)
     {
-<<<<<<< HEAD
         door.transform.position = door.transform.position + new Vector3(0, 5, 0);
-        soundManager.PlaySound("door");
-=======
-        door.transform.position = door.transform.position + new Vector3(0, 5, 0); 
         pressure++;
->>>>>>> dd107a0315c43829e3b83c7ab05961f5ecbab0e5
     }
     void OnTriggerExit(Collider col)
     {
@@ -25,7 +20,7 @@ public class FirstPressurePlate : MonoBehaviour
     }
     void Update() {
         if(pressure > 1 && !hasPlayed) {
-            soundManager.PlaySound("plate");
+            soundManager.PlaySound("door");  
             hasPlayed = true;
         }
         if( pressure < 1) {
