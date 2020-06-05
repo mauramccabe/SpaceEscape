@@ -59,6 +59,7 @@
      <Compile Include="Assets\race-track-lake\Standard Assets\Environment\Water (Basic)\Scripts\WaterBasic.cs" />
      <Compile Include="Assets\RobotSphere\Assets\Scripts\RobotFreeAnim.cs" />
      <Compile Include="Assets\Scripts\BridgeControler.cs" />
+     <Compile Include="Assets\Scripts\ButtonDespawnObject.cs" />
      <Compile Include="Assets\Scripts\ButtonPlatform.cs" />
      <Compile Include="Assets\Scripts\ButtonSpawnObject.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
@@ -73,6 +74,7 @@
      <Compile Include="Assets\Scripts\MainMenuButton.cs" />
      <Compile Include="Assets\Scripts\MySceneManager.cs" />
      <Compile Include="Assets\Scripts\NextLevel.cs" />
+     <Compile Include="Assets\Scripts\OrbScript.cs" />
      <Compile Include="Assets\Scripts\PauseGame.cs" />
      <Compile Include="Assets\Scripts\PickUpObject.cs" />
      <Compile Include="Assets\Scripts\playerCameraTest.cs" />

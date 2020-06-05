@@ -91,10 +91,12 @@ public class PlayerMovement : MonoBehaviour {
             lastGrounded = 0.2f;
 
         } else if (lastGrounded > 0) {
+            lastGrounded = lastGrounded - Time.deltaTime;
+            /*
             if (!jumpflag) //this is for the jump orb 
             {
                 lastGrounded = lastGrounded - Time.deltaTime;
-            }
+            }*/
         }
 
         if (Input.GetButtonDown("Jump")) {
@@ -127,10 +129,11 @@ public class PlayerMovement : MonoBehaviour {
 
 
 
-        if (lastGrounded > 0) {
+        if (lastGrounded > 0 || jumpflag) {
             if (tryJump)
             {
                 soundManager.PlaySound("jump");
+                
                 if (jumpflag)
                 {
                     moveDirection.y = jumpForce; //can change this to make the orb jump higher
@@ -229,12 +232,12 @@ public class PlayerMovement : MonoBehaviour {
             springJump = true;
             soundManager.PlaySound("spring");
         } else if (other.gameObject.tag == "JumpOrb") {
-            other.gameObject.SetActive(true);
-            lastGrounded = 0.2f;
+            other.gameObject.SetActive(false);
+            //lastGrounded = 0.2f;
 
             jumpflag = true;
         } else if (other.gameObject.tag == "DashOrb") {
-            other.gameObject.SetActive(true);
+            other.gameObject.SetActive(false);
             canDash = true;
         }
     }

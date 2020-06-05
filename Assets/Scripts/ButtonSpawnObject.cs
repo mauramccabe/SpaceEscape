@@ -14,6 +14,6 @@ public class ButtonSpawnObject : MonoBehaviour
 
     void OnTriggerEnter(Collider col) {
         toSpawn.SetActive(true);
-
+        soundManager.PlaySound("plate");
     }
 }
