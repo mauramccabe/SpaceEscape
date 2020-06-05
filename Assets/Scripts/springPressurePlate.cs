@@ -15,6 +15,7 @@ public class springPressurePlate : MonoBehaviour
 
     		touched = 1;
         	spring.transform.position = spring.transform.position + new Vector3(0, 2, 0);
+            soundManager.PlaySound("plate");
     	}
     }
     void OnTriggerExit(Collider col)

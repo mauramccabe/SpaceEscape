@@ -98,6 +98,7 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         if (Input.GetButtonDown("Jump")) {
+            soundManager.PlaySound ("jump");
             tryJump = true;
         }
         if (Input.GetKeyDown("left shift")) {
