@@ -98,7 +98,7 @@ public class PickUpObject : MonoBehaviour {
 		rb.isKinematic = false;
 		rb.useGravity = true;
 		transform.parent = null;
-
+		soundManager.PlaySound("pickup");
 		beingCarried = false;
         rb.constraints = 0;
 		rb.transform.localScale = new Vector3(2f, 2f, 2f);
